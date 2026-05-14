@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eli Kopcha Coaching — Fitness Coaching for GLP-1 Users</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        /* ─── RESET & BASE ─── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0B0B0F;
+            color: #E8E8F0;
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── TOP BAR ─── */
+        .top-bar {
+            background: #0B0B0F;
+            border-bottom: 1px solid #1E1E30;
+            padding: 18px 24px;
+            text-align: center;
+        }
+        .brand-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #E8E8F0;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 24px 64px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+            color: #E8E8F0;
+            margin-bottom: 22px;
+        }
+        .hero h1 .accent { color: #4A90E2; }
+        .hero .sub {
+            font-size: clamp(1rem, 2.5vw, 1.18rem);
+            font-weight: 400;
+            color: #7878A0;
+            max-width: 560px;
+            margin: 0 auto 44px;
+            line-height: 1.7;
+        }
+
+        /* ─── VSL ─── */
+        .vsl-wrap {
+            background: #14151E;
+            border: 1px solid #22233A;
+            border-radius: 14px;
+            aspect-ratio: 16 / 9;
+            max-width: 640px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            position: relative;
+        }
+        .vsl-play {
+            width: 68px;
+            height: 68px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+        }
+        .vsl-play::after {
+            content: '';
+            border-left: 24px solid #E8E8F0;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            margin-left: 6px;
+        }
+        .vsl-hint {
+            font-size: 12px;
+            color: #404060;
+            letter-spacing: 0.04em;
+        }
+
+        /* ─── SHARED SECTION STYLES ─── */
+        .section { padding: 80px 24px; }
+        .inner { max-width: 700px; margin: 0 auto; }
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 14px;
+        }
+        .section-heading {
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.18;
+            letter-spacing: -0.022em;
+            color: #E8E8F0;
+            margin-bottom: 20px;
+        }
+        .section-body {
+            font-size: 1.05rem;
+            color: #7878A0;
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+        .section-body:last-child { margin-bottom: 0; }
+
+        /* ─── SOCIAL PROOF ─── */
+        .social-proof {
+            background: #0F1018;
+            padding: 48px 24px 64px;
+        }
+        .social-proof-inner { max-width: 700px; margin: 0 auto; }
+        .social-proof-label {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #404060;
+            margin-bottom: 28px;
+        }
+        .testimonials { display: grid; gap: 20px; }
+        @media (min-width: 580px) {
+            .testimonials { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 820px) {
+            .testimonials { grid-template-columns: 1fr 1fr 1fr; }
+        }
+        .testimonial {
+            background: #14151E;
+            border: 1px solid #22233A;
+            border-radius: 12px;
+            padding: 24px 22px;
+        }
+        .testimonial-header { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
+        .photo-wrap {
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid #22233A;
+            display: block;
+        }
+
+        .testimonial-photo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-mason-wrap {
+            width: 80px;
+            height: 80px;
+        }
+
+        .photo-mason {
+            transform: scale(1.6);
+            transform-origin: 50% 28%;
+            filter: brightness(1.3);
+        }
+
+        .photo-max-wrap {
+            width: 80px;
+            height: 80px;
+        }
+
+        .photo-max {
+            transform: scale(1.5);
+            transform-origin: 50% 30%;
+        }
+
+        .photo-eli-wrap { width: 80px; height: 80px; }
+        .photo-eli { transform: scale(1.5); transform-origin: 50% 20%; }
+
+        .coach-card {
+            background: #0F1623;
+            border: 1.5px solid #4A90E2;
+            border-radius: 12px;
+            padding: 24px 22px;
+        }
+
+        .testimonial-name { font-size: 0.92rem; font-weight: 600; color: #E8E8F0; }
+        .testimonial-tag { font-size: 0.78rem; color: #404060; margin-top: 2px; }
+        .testimonial-stars { color: #F5C518; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 10px; }
+        .testimonial-quote { font-size: 0.93rem; color: #9090B0; line-height: 1.68; font-style: italic; }
+
+        /* ─── PROBLEM VS SOLUTION ─── */
+        .for-you { background: #0F1018; }
+        .ps-grid { display: grid; gap: 20px; margin-top: 36px; }
+        .ps-card {
+            background: #14151E;
+            border-radius: 12px;
+            padding: 28px 26px;
+            border-left: 3px solid #4A90E2;
+        }
+        .ps-problem {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #E86060;
+            margin-bottom: 8px;
+        }
+        .ps-heading { font-size: 1.05rem; font-weight: 700; color: #E8E8F0; margin-bottom: 12px; line-height: 1.3; }
+        .ps-solution { font-size: 0.93rem; color: #7878A0; line-height: 1.7; }
+        .ps-solution strong { color: #4A90E2; font-weight: 600; }
+
+        /* ─── HOW IT WORKS ─── */
+        .how { background: #07070D; }
+        .how .eyebrow { color: #6BAAF0; }
+        .how .section-heading { color: #E8E8F0; }
+        .how .section-body { color: #7878A0; }
+        .pillars { display: grid; gap: 20px; margin-top: 44px; }
+        @media (min-width: 560px) {
+            .pillars { grid-template-columns: repeat(2, 1fr); }
+        }
+        .pillar {
+            background: #111118;
+            border: 1px solid #1C1C2E;
+            border-radius: 12px;
+            padding: 30px 24px;
+        }
+        .pillar-num { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #4A90E2; margin-bottom: 14px; }
+        .pillar-title { font-size: 1.05rem; font-weight: 600; color: #E8E8F0; margin-bottom: 16px; }
+        .pillar-list { list-style: none; display: grid; gap: 9px; }
+        .pillar-list li { font-size: 0.88rem; color: #7878A0; line-height: 1.45; display: flex; align-items: flex-start; gap: 8px; }
+        .pillar-list li::before { content: '·'; color: #4A90E2; font-size: 1.3rem; line-height: 1.1; flex-shrink: 0; }
+
+        /* ─── PRICING ─── */
+        .pricing { background: #0B0B0F; text-align: center; }
+        .pricing .section-heading { margin-bottom: 32px; }
+        .cards { display: grid; gap: 22px; max-width: 680px; margin: 0 auto; }
+        @media (min-width: 600px) {
+            .cards { grid-template-columns: 1fr 1fr; }
+        }
+        .card {
+            background: #14151E;
+            border: 1.5px solid #22233A;
+            border-radius: 16px;
+            padding: 36px 28px 32px;
+            text-align: left;
+            position: relative;
+        }
+        .card.featured { border-color: #4A90E2; }
+        .badge {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4A90E2;
+            color: #FFF;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .tier-name { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #404060; margin-bottom: 10px; }
+        .price { font-size: 2.6rem; font-weight: 700; color: #E8E8F0; letter-spacing: -0.035em; line-height: 1; margin-bottom: 4px; }
+        .price .per { font-size: 1rem; font-weight: 400; color: #404060; }
+        .card-desc { font-size: 0.88rem; color: #7878A0; line-height: 1.55; margin: 14px 0 24px; }
+        .feature-list { list-style: none; display: grid; gap: 11px; margin-bottom: 30px; }
+        .feature-list li { font-size: 0.93rem; color: #B0B0C8; display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
+        .feature-list li::before { content: '✓'; color: #4A90E2; font-weight: 700; flex-shrink: 0; font-size: 0.9rem; margin-top: 1px; }
+        .cta {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            background: #4A90E2;
+            color: #FFF;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: background 0.2s ease;
+        }
+        .cta:hover { background: #2E6BC0; }
+        .cta.green { background: #F5C518; color: #07070D; font-weight: 700; }
+        .cta.green:hover { background: #D4A810; }
+
+        /* ─── GUARANTEE BANNER ─── */
+        .guarantee-banner {
+            margin-top: 36px;
+            background: rgba(245, 197, 24, 0.06);
+            border: 1.5px solid #F5C518;
+            border-radius: 12px;
+            padding: 24px 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            text-align: left;
+        }
+        .guarantee-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+        .guarantee-text { font-size: 0.97rem; color: #B0B0C8; line-height: 1.65; }
+        .guarantee-text strong { display: block; font-size: 1.05rem; color: #F5C518; margin-bottom: 5px; font-weight: 700; letter-spacing: -0.01em; }
+
+        .plans-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #404060;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* ─── FLAGSHIP ─── */
+        .flagship-card {
+            background: #07070D;
+            border: 1.5px solid #4A90E2;
+            border-radius: 16px;
+            padding: 44px 36px;
+            text-align: left;
+            position: relative;
+        }
+        .flagship-badge {
+            display: inline-block;
+            background: #4A90E2;
+            color: #FFF;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 5px 18px;
+            border-radius: 20px;
+            margin-bottom: 22px;
+        }
+        .flagship-name { font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 700; color: #E8E8F0; letter-spacing: -0.02em; margin-bottom: 10px; }
+        .flagship-price { font-size: clamp(2.4rem, 6vw, 3.2rem); font-weight: 700; color: #FFF; letter-spacing: -0.04em; line-height: 1; margin-bottom: 18px; }
+        .flagship-promise { font-size: 1rem; color: #6BAAF0; line-height: 1.65; margin-bottom: 30px; font-weight: 500; max-width: 560px; }
+        .flagship-features { list-style: none; display: grid; gap: 12px; margin-bottom: 34px; }
+        @media (min-width: 560px) {
+            .flagship-features { grid-template-columns: 1fr 1fr; }
+        }
+        .flagship-features li { font-size: 0.93rem; color: #9090B0; display: flex; align-items: flex-start; gap: 10px; line-height: 1.45; }
+        .flagship-features li::before { content: '✓'; color: #6BAAF0; font-weight: 700; flex-shrink: 0; font-size: 0.9rem; margin-top: 1px; }
+        .flagship-features li.highlight-feature { color: #E8E8F0; font-weight: 600; }
+        .flagship-features li.highlight-feature::before { color: #F5C518; }
+        .flagship-cta { background: #F5C518; color: #07070D; max-width: 340px; font-weight: 700; }
+        .flagship-cta:hover { background: #D4A810; color: #07070D; }
+
+        /* ─── FAQ ─── */
+        .faq { background: #0F1018; }
+        .faq-list { margin-top: 40px; display: grid; gap: 14px; }
+        .faq-item { background: #14151E; border: 1px solid #22233A; border-radius: 10px; padding: 26px 24px; }
+        .faq-q { font-size: 0.98rem; font-weight: 600; color: #E8E8F0; margin-bottom: 10px; }
+        .faq-a { font-size: 0.93rem; color: #7878A0; line-height: 1.7; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #07070D;
+            border-top: 1px solid #1C1C2E;
+            color: #404060;
+            text-align: center;
+            padding: 36px 24px;
+            font-size: 0.83rem;
+            line-height: 1.8;
+        }
+        footer a { color: #7878A0; text-decoration: none; }
+        footer a:hover { color: #E8E8F0; }
+        .footer-contact { font-size: 0.9rem; color: #7878A0; margin-bottom: 8px; }
+        .footer-legal { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 599px) {
+            .hero { padding: 48px 20px 44px; }
+            .hero h1 { font-size: 2rem; }
+            .section { padding: 52px 20px; }
+            .social-proof { padding: 36px 20px 48px; }
+            .testimonials { grid-template-columns: 1fr; }
+            .pillars { grid-template-columns: 1fr; margin-top: 28px; }
+            .flagship-card { padding: 32px 22px; }
+            .flagship-features { grid-template-columns: 1fr; }
+            .flagship-promise { max-width: 100%; font-size: 0.97rem; }
+            .flagship-cta { max-width: 100%; }
+            .cards { grid-template-columns: 1fr; }
+            .card { padding: 30px 22px 26px; }
+            .price { font-size: 2.2rem; }
+            .faq-item { padding: 20px 18px; }
+            .vsl-play { width: 56px; height: 56px; }
+            .vsl-play::after { border-left: 18px solid #E8E8F0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+            .cta { padding: 16px 20px; font-size: 0.95rem; }
+            .section-heading { font-size: 1.6rem; }
+            .flagship-name { font-size: 1.25rem; }
+            .flagship-price { font-size: 2.4rem; }
+            .guarantee-banner { flex-direction: column; gap: 12px; padding: 20px 18px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ─── TOP BAR ─── -->
+    <header class="top-bar">
+        <span class="brand-name">ELI KOPCHA COACHING</span>
+    </header>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+        <h1>Reach your goal weight with simple nutrition, quick workouts, and <span class="accent">sustainable strategies.</span></h1>
+        <p class="sub">
+            Stop putting yourself through grueling workouts and tedious calorie-tracking. This step-by-step coaching system combines personalized nutrition, quick workouts, and 1-on-1 accountability to help you reach your health and fitness goals while using GLP-1s.
+        </p>
+
+        <!-- Replace this div with your video embed -->
+        <div class="vsl-wrap">
+            <div class="vsl-play"></div>
+            <span class="vsl-hint">Replace with your video</span>
+        </div>
+    </section>
+
+    <!-- ─── SOCIAL PROOF ─── -->
+    <section class="social-proof">
+        <div class="social-proof-inner">
+            <p class="social-proof-label">Real clients. Real results.</p>
+            <div class="testimonials">
+
+                <!-- MASON -->
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="photo-wrap photo-mason-wrap">
+                            <img class="testimonial-photo photo-mason" src="attachments/mason.jpg" alt="Mason">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Mason</div>
+                            <div class="testimonial-tag">Coaching client</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"I'm down to 169 lbs — a weight I genuinely haven't seen in years. I wasn't sure how quickly things would move, but the program made it straightforward. The progress has been real and it's kept me motivated to keep going."</p>
+                </div>
+
+                <!-- ELI (COACH) -->
+                <div class="testimonial coach-card">
+                    <div class="testimonial-header">
+                        <div class="photo-wrap photo-eli-wrap">
+                            <img class="testimonial-photo photo-eli" src="attachments/eli.jpg" alt="Eli">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Eli Kopcha</div>
+                            <div class="testimonial-tag">Your Coach</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote" style="font-style: normal; color: #B0B0C8;">"I've spent countless hours working out, dieting, and researching everything about fitness. A large chunk of that research has been on GLP-1 medications. They're a great tool, and I personally have used them — but they're very easy to misuse. The truth is, without a proper system in place they won't bring you the change you want. That's why I created my coaching program."</p>
+                </div>
+
+                <!-- MAX -->
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="photo-wrap photo-max-wrap">
+                            <img class="testimonial-photo photo-max" src="attachments/max.jpg" alt="Max">
+                        </div>
+                        <div>
+                            <div class="testimonial-name">Max</div>
+                            <div class="testimonial-tag">Coaching client</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">"Lost 10 lbs working with Eli. What made the difference was how consistently supported I felt — he kept me accountable through the whole process without it ever feeling overwhelming. Genuinely one of the best decisions I've made."</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── IS THIS FOR YOU? ─── -->
+    <section class="section for-you">
+        <div class="inner">
+            <div class="eyebrow">The Problem vs. The Solution</div>
+            <h2 class="section-heading">Your GLP-1 Has Been Letting You Down.</h2>
+            <p class="section-body">You were promised high energy and a toned body, but you got none of those. You're not alone — thousands of people just like you have experienced the same letdown. Here's what's actually going wrong, and how this coaching system fixes it.</p>
+
+            <div class="ps-grid">
+
+                <div class="ps-card">
+                    <div class="ps-problem">Problem 01</div>
+                    <div class="ps-heading">They become weak and frail.</div>
+                    <p class="ps-solution">When the scale drops without proper resistance training, a significant portion of that weight loss comes from muscle — not fat. The result is a body that looks and feels worse than before. <strong>This program uses a simple 2–4 day per week strength training plan, specifically designed to preserve and build muscle while you lose fat.</strong> The workouts are short, repeatable, and built around exercises you can actually stick to long-term — not complicated routines that burn you out in two weeks.</p>
+                </div>
+
+                <div class="ps-card">
+                    <div class="ps-problem">Problem 02</div>
+                    <div class="ps-heading">They have low energy due to improper nutrition.</div>
+                    <p class="ps-solution">GLP-1 medications suppress your appetite dramatically, which makes it easy to barely eat — and even easier to under-eat protein, the single most important nutrient for energy and muscle retention. <strong>The nutrition plan is built specifically around a suppressed appetite, with simple high-protein foods that are easy to prepare and easy to stay consistent with.</strong> No calorie counting. No complicated meal plans. Just a clear, sustainable way of eating that keeps your energy up and your muscle intact.</p>
+                </div>
+
+                <div class="ps-card">
+                    <div class="ps-problem">Problem 03</div>
+                    <div class="ps-heading">They feel lost in the gym.</div>
+                    <p class="ps-solution">Most fitness programs are built for athletes or 25-year-olds chasing aesthetics — not for adults on GLP-1s who want to feel healthy and capable without fitness consuming their life. Walking into a gym without a clear plan is overwhelming, and that uncertainty is exactly what kills consistency. <strong>This coaching system removes all the guesswork with a minimalistic, easy-to-follow workout plan tailored to your schedule, your body, and your goals.</strong> You always know exactly what to do, which makes showing up — and staying consistent — far easier.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── HOW IT WORKS ─── -->
+    <section class="section how">
+        <div class="inner">
+            <div class="eyebrow">How It Works</div>
+            <h2 class="section-heading">Four systems. Done consistently. That's the whole plan.</h2>
+            <p class="section-body">Four core pillars that work together to help you lose fat, preserve muscle, and feel like yourself again.</p>
+
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="pillar-num">01</div>
+                    <div class="pillar-title">Simple Nutrition</div>
+                    <ul class="pillar-list">
+                        <li>No counting calories</li>
+                        <li>Promotes muscle growth</li>
+                        <li>Intuitive eating approach</li>
+                        <li>No nausea or bloating</li>
+                        <li>Great for the busy lifestyle</li>
+                    </ul>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-num">02</div>
+                    <div class="pillar-title">Quick Workouts</div>
+                    <ul class="pillar-list">
+                        <li>Personalized to target specific body parts</li>
+                        <li>2–4 workouts per week</li>
+                        <li>30–60 minutes per session</li>
+                        <li>Designed to not leave you exhausted</li>
+                        <li>Simple, easy-to-learn exercises</li>
+                    </ul>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-num">03</div>
+                    <div class="pillar-title">GLP-1 & Peptide Coaching</div>
+                    <ul class="pillar-list">
+                        <li>Personalized GLP-1 guidance</li>
+                        <li>Custom peptide stack</li>
+                        <li>Access to peptides at a reduced rate</li>
+                    </ul>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-num">04</div>
+                    <div class="pillar-title">Check-Ins & Accountability</div>
+                    <ul class="pillar-list">
+                        <li>Weekly check-in calls</li>
+                        <li>1-on-1 guidance</li>
+                        <li>Personalized support</li>
+                        <li>Program adjustments as you progress</li>
+                        <li>Easy compliance strategies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PRICING ─── -->
+    <section class="section pricing">
+        <div class="inner">
+            <h2 class="section-heading">Pricing</h2>
+
+            <!-- FLAGSHIP -->
+            <div class="flagship-card">
+                <div class="flagship-badge">Flagship Offer</div>
+                <div class="flagship-name">Full Transformation Guarantee</div>
+                <div class="flagship-price">$3,000</div>
+                <p class="flagship-promise">I coach you until you reach your goal weight — or for a full year, whichever comes first. This is the only plan built around your outcome, not a timeframe.</p>
+                <ul class="flagship-features">
+                    <li class="highlight-feature">Coached to your goal weight — up to a full year of coaching</li>
+                    <li>24/7 text and call support</li>
+                    <li>Personalized nutrition plan</li>
+                    <li>Personalized training plan</li>
+                    <li>Weekly check-ins</li>
+                    <li>Personalized peptide & supplement coaching</li>
+                    <li>Access to discounted peptides</li>
+                    <li>Accountability system</li>
+                </ul>
+                <a href="https://buy.stripe.com/14AdR96rd9pz8Fg4DQ1wY03" class="cta flagship-cta" target="_blank">Get Started</a>
+            </div>
+
+            <!-- STANDARD PLANS -->
+            <p class="plans-label" style="margin-top: 48px;">Standard Plans</p>
+            <div class="cards">
+
+                <!-- $300/mo -->
+                <div class="card">
+                    <div class="tier-name">Monthly</div>
+                    <div class="price">$300<span class="per">/mo</span></div>
+                    <p class="card-desc">Structured coaching month-to-month — everything you need to start losing fat and preserving muscle.</p>
+                    <ul class="feature-list">
+                        <li>Accountability system & text support</li>
+                        <li>Easy-to-follow diet plan</li>
+                        <li>Minimalistic training plan</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/14AcN5g1N1X73kWgmy1wY04" class="cta" target="_blank">Get Started</a>
+                </div>
+
+                <!-- $750/3mo -->
+                <div class="card featured">
+                    <div class="badge">Best Value — Save $150</div>
+                    <div class="tier-name">3 Months</div>
+                    <div class="price">$750<span class="per">/3 mo</span></div>
+                    <p class="card-desc">Three months of full coaching at a reduced rate — the most effective way to build real, lasting momentum.</p>
+                    <ul class="feature-list">
+                        <li>Accountability system & text support</li>
+                        <li>Easy-to-follow diet plan</li>
+                        <li>Minimalistic training plan</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/00w5kD3f131bg7I9Ya1wY05" class="cta green" target="_blank">Get Started</a>
+                </div>
+
+            </div>
+
+            <div class="guarantee-banner">
+                <div class="guarantee-icon">🏆</div>
+                <div class="guarantee-text">
+                    <strong>Results Guarantee</strong>
+                    Hit your agreed-upon milestone and I'll cover a full month of your GLP-1 medication — on me. This isn't a typical money-back guarantee. I'm betting on your success.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section class="section faq">
+        <div class="inner">
+            <div class="eyebrow">Questions</div>
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <div class="faq-q">Who is this for?</div>
+                    <div class="faq-a">This is for busy adults on GLP-1 medications who want to look and feel strong, lean, and healthy — without tracking every calorie or spending hours a day in the gym. If you're looking for a sustainable approach to fitness that fits into your real life and actually lasts, this program was built for you.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What do I have to do?</div>
+                    <div class="faq-a">There's no endless cardio — just a simple daily step count. You'll train 2–4 times per week with workouts ranging from 30 to 60 minutes each. Beyond that, the most important thing is to be honest with me about how things are going so I can accurately adjust your plan as needed. That's it.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What if it doesn't work for me?</div>
+                    <div class="faq-a">The systems I have put in place are designed to make it very hard not to reach your goals. And if you're on the Full Transformation Guarantee plan, there's no "if" — I coach you until you get there, no matter what it takes.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <p class="footer-contact">Questions? <a href="mailto:elikopcha@gmail.com">elikopcha@gmail.com</a></p>
+        <p>© 2026 ELI KOPCHA COACHING. All rights reserved.</p>
+        <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+        </div>
+    </footer>
+
+</body>
+</html>
