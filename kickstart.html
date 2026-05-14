@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7-Day Kickstart Plan — Eli Kopcha Coaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #0B0B0F;
+    color: #E8E8F0;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    background: #0B0B0F;
+    border-bottom: 1px solid #1E1E30;
+    padding: 18px 24px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .brand-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #E8E8F0;
+  }
+
+  /* ── SCREENS ── */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ── INTAKE ── */
+  .intake-hero {
+    padding: 64px 24px 52px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .free-pill {
+    display: inline-block;
+    background: rgba(245,197,24,0.1);
+    border: 1px solid rgba(245,197,24,0.3);
+    color: #F5C518;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+  }
+  .intake-hero h1 {
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: #E8E8F0;
+    margin-bottom: 18px;
+  }
+  .intake-hero h1 .accent { color: #4A90E2; }
+  .intake-hero .sub {
+    font-size: 1rem;
+    color: #7878A0;
+    line-height: 1.72;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ── FORM CARD ── */
+  .form-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .form-card {
+    background: #14151E;
+    border: 1.5px solid #22233A;
+    border-radius: 16px;
+    padding: 36px 32px;
+  }
+  .form-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #E8E8F0;
+    margin-bottom: 4px;
+  }
+  .form-card-sub {
+    font-size: 0.84rem;
+    color: #5A5A80;
+    margin-bottom: 28px;
+  }
+  .form-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #4A90E2;
+    margin: 28px 0 14px;
+  }
+  .form-section-label:first-of-type { margin-top: 0; }
+  .form-row { display: grid; gap: 12px; margin-bottom: 14px; }
+  .form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+  .form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 520px) {
+    .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
+    .form-card { padding: 28px 20px; }
+  }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 0.81rem;
+    font-weight: 600;
+    color: #6868A0;
+    letter-spacing: 0.02em;
+  }
+  .form-group input,
+  .form-group select {
+    background: #0B0B0F;
+    border: 1.5px solid #22233A;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.93rem;
+    color: #E8E8F0;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.18s ease;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus { border-color: #4A90E2; }
+  .form-group input::placeholder { color: #404060; }
+  .form-group select option { background: #14151E; color: #E8E8F0; }
+  .chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .chip {
+    padding: 7px 14px;
+    border-radius: 6px;
+    border: 1.5px solid #22233A;
+    background: #0B0B0F;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #5A5A80;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .chip:hover { border-color: #4A90E2; color: #E8E8F0; }
+  .chip.selected {
+    background: rgba(74,144,226,0.1);
+    border-color: #4A90E2;
+    color: #4A90E2;
+  }
+  .form-divider { height: 1px; background: #1E1E30; margin: 24px 0; }
+  .form-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background: #4A90E2;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: background 0.18s ease;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  .form-btn:hover { background: #2E6BC0; }
+  .form-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .form-note {
+    text-align: center;
+    font-size: 0.77rem;
+    color: #404060;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+  .error-msg {
+    background: rgba(220,80,80,0.08);
+    border: 1.5px solid rgba(220,80,80,0.25);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #e08080;
+    font-size: 0.85rem;
+    margin-top: 14px;
+    display: none;
+  }
+
+  /* ── PLAN SCREEN ── */
+  .plan-hero {
+    background: #0B0B0F;
+    border-bottom: 1px solid #1E1E30;
+    padding: 56px 24px 48px;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4A90E2;
+    margin-bottom: 14px;
+  }
+  .plan-hero h1 {
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: #E8E8F0;
+    margin-bottom: 12px;
+  }
+  .plan-hero h1 .accent { color: #4A90E2; }
+  .plan-meta {
+    font-size: 0.88rem;
+    color: #5A5A80;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .plan-meta span::before {
+    content: '✓ ';
+    color: #4A90E2;
+    font-weight: 700;
+  }
+
+  /* ── PLAN BODY ── */
+  .plan-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .plan-content { font-size: 0.95rem; line-height: 1.78; color: #C8C8D8; }
+
+  .plan-content h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #E8E8F0;
+    letter-spacing: -0.018em;
+    margin: 44px 0 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1E1E30;
+  }
+  .plan-content h1:first-child { margin-top: 0; }
+  .plan-content h2 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #E8E8F0;
+    margin: 28px 0 8px;
+  }
+  .plan-content h3 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4A90E2;
+    margin: 24px 0 8px;
+  }
+  .plan-content p { margin-bottom: 12px; }
+  .plan-content ul, .plan-content ol {
+    padding-left: 22px;
+    margin-bottom: 14px;
+  }
+  .plan-content li { margin-bottom: 6px; }
+  .plan-content strong { color: #E8E8F0; font-weight: 600; }
+  .plan-content em { color: #F5C518; font-style: normal; font-weight: 500; }
+  .plan-content blockquote {
+    border-left: 3px solid #4A90E2;
+    padding: 12px 18px;
+    margin: 20px 0;
+    background: rgba(74,144,226,0.06);
+    border-radius: 0 8px 8px 0;
+    color: #9090B0;
+    font-size: 0.92rem;
+    font-style: italic;
+  }
+  .plan-content hr { border: none; border-top: 1px solid #1E1E30; margin: 32px 0; }
+
+  /* day cards */
+  .day-card {
+    background: #14151E;
+    border: 1.5px solid #22233A;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 10px 0;
+    transition: border-color 0.18s;
+  }
+  .day-card:hover { border-color: rgba(74,144,226,0.4); }
+  .day-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #4A90E2;
+    margin-bottom: 10px;
+  }
+  .day-card ul { padding-left: 18px; }
+  .day-card li { margin-bottom: 4px; font-size: 0.9rem; color: #B0B0C8; }
+  .day-card strong { color: #E8E8F0; }
+
+  .ex-note {
+    font-size: 0.82rem;
+    color: #5A5A80;
+    font-weight: 400;
+  }
+
+  .restart-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 11px 24px;
+    background: transparent;
+    border: 1.5px solid #22233A;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #5A5A80;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-transform: uppercase;
+  }
+  .restart-btn:hover { border-color: #4A90E2; color: #4A90E2; }
+
+  footer {
+    background: #0B0B0F;
+    border-top: 1px solid #1E1E30;
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: #404060;
+  }
+  footer a { color: #4A90E2; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <span class="brand-name">ELI KOPCHA COACHING</span>
+</header>
+
+<!-- ── INTAKE SCREEN ── -->
+<div id="intake-screen" class="screen active">
+  <div class="intake-hero">
+    <div class="free-pill">100% Free — No Obligation</div>
+    <h1>Get your <span class="accent">7-day kickstart</span> plan.</h1>
+    <p class="sub">Answer a few quick questions and I'll build a personalized plan around your body, your goals, and your life.</p>
+  </div>
+
+  <div class="form-wrap">
+    <div class="form-card">
+      <div class="form-card-title">Build My Plan</div>
+      <div class="form-card-sub">Takes about 60 seconds.</div>
+
+      <div class="form-section-label">About You</div>
+      <div class="form-row cols-3">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="f-name" placeholder="Alex" autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label>Age</label>
+          <input type="number" id="f-age" placeholder="28" min="16" max="80" />
+        </div>
+        <div class="form-group">
+          <label>Weight (lbs)</label>
+          <input type="number" id="f-weight" placeholder="175" min="80" max="450" />
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label>I identify as</label>
+          <select id="f-gender">
+            <option value="">Select...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Primary Goal</label>
+          <select id="f-goal">
+            <option value="">Select...</option>
+            <option value="fat_loss">Lose fat</option>
+            <option value="muscle">Build muscle</option>
+            <option value="recomp">Both — lose fat & build muscle</option>
+            <option value="health">General health & energy</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row cols-2" style="margin-bottom:0">
+        <div class="form-group">
+          <label>How would you describe your body right now?</label>
+          <select id="f-body">
+            <option value="">Select...</option>
+            <option value="skinny">Lean / skinny — low muscle, low fat</option>
+            <option value="skinny_fat">Skinny fat — low muscle, some fat</option>
+            <option value="average">Average — some muscle, some fat</option>
+            <option value="overweight">Carrying extra weight, want to lean out</option>
+            <option value="athletic">Already fairly athletic, want to level up</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Height <span style="color:#404060;font-weight:400">(optional)</span></label>
+          <input type="text" id="f-height" placeholder='e.g. 5&apos;10"' />
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-label">Training</div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label>Training experience</label>
+          <select id="f-exp">
+            <option value="">Select...</option>
+            <option value="beginner">Beginner (0–1 year)</option>
+            <option value="intermediate">Intermediate (1–3 years)</option>
+            <option value="advanced">Advanced (3+ years)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Days/week you can train</label>
+          <select id="f-days">
+            <option value="">Select...</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="4">4 days</option>
+            <option value="5">5 days</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-label">Lifestyle</div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label>How active is your daily life?</label>
+          <select id="f-activity">
+            <option value="">Select...</option>
+            <option value="sedentary">Mostly sitting — desk job</option>
+            <option value="light">Light activity — some walking</option>
+            <option value="active">Active — on feet a lot</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How much do you currently sleep?</label>
+          <select id="f-sleep">
+            <option value="">Select...</option>
+            <option value="poor">Under 6 hours</option>
+            <option value="okay">6–7 hours</option>
+            <option value="good">7–8 hours</option>
+            <option value="great">8+ hours</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:6px;">
+        <label>Biggest struggles right now <span style="color:#404060;font-weight:400">(select all that apply)</span></label>
+      </div>
+      <div class="chip-group" id="f-struggles">
+        <div class="chip" data-val="cravings">Food cravings</div>
+        <div class="chip" data-val="consistency">Staying consistent</div>
+        <div class="chip" data-val="motivation">Motivation</div>
+        <div class="chip" data-val="diet">Knowing what to eat</div>
+        <div class="chip" data-val="training">Knowing how to train</div>
+        <div class="chip" data-val="time">Not enough time</div>
+        <div class="chip" data-val="stress">High stress / poor sleep</div>
+        <div class="chip" data-val="past_failures">Failed programs before</div>
+      </div>
+
+      <div class="form-divider"></div>
+      <button class="form-btn" id="gen-btn" onclick="handleGenerate()">
+        Build My 7-Day Plan →
+      </button>
+      <p class="form-note">Your information is private and will never be shared.</p>
+      <div class="error-msg" id="err-msg"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Questions? <a href="mailto:elikopcha@gmail.com">elikopcha@gmail.com</a></p>
+    <p style="margin-top:8px;">© 2026 ELI KOPCHA COACHING. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- ── PLAN SCREEN ── -->
+<div id="plan-screen" class="screen">
+  <div class="plan-hero">
+    <div class="eyebrow">Eli Kopcha Coaching — 7-Day Kickstart</div>
+    <h1 id="plan-title">Your <span class="accent">Personalized Plan</span></h1>
+    <div class="plan-meta" id="plan-meta"></div>
+  </div>
+  <div class="plan-body">
+    <div class="plan-content" id="plan-output"></div>
+    <button class="restart-btn" onclick="restart()">← Start Over</button>
+  </div>
+  <footer>
+    <p>Questions? <a href="mailto:elikopcha@gmail.com">elikopcha@gmail.com</a></p>
+    <p style="margin-top:8px;">© 2026 ELI KOPCHA COACHING. All rights reserved.</p>
+  </footer>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// ELI KOPCHA COACHING — PLAN GENERATION ENGINE
+// All plans generated client-side, no API needed
+// ─────────────────────────────────────────────
+
+function generateKickstartPlan(intake) {
+  const { name, age, weight, gender, goal, body_type, experience, days, activity, sleep, struggles, height } = intake;
+
+  const wt = parseFloat(weight);
+  const proteinLow  = Math.round(wt * 0.7);
+  const proteinHigh = Math.round(wt * 1.0);
+  const numDays = parseInt(days);
+  const isMale = gender === 'male';
+  const isFemale = gender === 'female';
+
+  // ── STRUGGLE CALLOUTS ──────────────────────────────────────
+  function struggleNote() {
+    const s = struggles || [];
+    if (s.includes('cravings'))       return `You mentioned food cravings — that's exactly what this nutrition approach is designed to kill. Eat from the list, eat when hungry, and the cravings stop chasing you.`;
+    if (s.includes('past_failures'))  return `You've tried things that didn't work before. That's not a you problem — it's a program problem. This is different: no restriction, no starvation, just real food and real movement.`;
+    if (s.includes('consistency'))    return `Consistency has been the struggle — which usually means the plan was too complicated. This one isn't. It's the same things, done well, repeated.`;
+    if (s.includes('diet'))           return `Not knowing what to eat is one of the most common things I hear. By the end of day one, you'll have complete clarity on that.`;
+    if (s.includes('time'))           return `You said time is tight. Good — these workouts are 45–55 minutes, three to four times a week. That's it.`;
+    if (s.includes('motivation'))     return `Motivation follows action, not the other way around. Don't wait to feel ready. Start today, and the motivation will catch up.`;
+    if (s.includes('stress'))         return `High stress and poor sleep are making everything harder — fat loss, muscle building, energy. We're going to attack those directly in this plan.`;
+    return `The goal here isn't to overwhelm you in week one — it's to build real momentum with sustainable habits that actually stick.`;
+  }
+
+  // ── SLEEP CALLOUT ──────────────────────────────────────────
+  function sleepNote() {
+    if (sleep === 'poor')  return `**Your sleep needs immediate attention.** You're currently under 6 hours — that's your biggest blocker right now, ahead of everything else. Fat loss stalls, muscle doesn't build, cravings spike. Getting to 7 hours minimum is step one this week.`;
+    if (sleep === 'okay')  return `**Sleep is something to work on this week.** You're getting 6–7 hours — close, but you want to be at 7 minimum, 8 ideally. Even 30–45 extra minutes makes a measurable difference in how you feel and how your body responds.`;
+    if (sleep === 'good')  return `Sleep is solid. Keep it there. If you can nudge it to 8 hours consistently, do it — it's free performance.`;
+    return `Sleep is dialed in. That's a real advantage. Protect it.`;
+  }
+
+  // ── BODY TYPE CONTEXT ──────────────────────────────────────
+  function bodyTypeNote() {
+    if (body_type === 'skinny')      return isMale
+      ? `You're lean already — the focus here is building size and strength, especially in your upper body. Don't be afraid to eat more than feels comfortable at first.`
+      : `You're lean already — the focus is building shape and strength, especially in your lower body. Fuel your training; this isn't a diet phase.`;
+    if (body_type === 'skinny_fat')  return `Skinny fat responds well to this exact approach — training hard with big lifts while eating clean, natural food. You'll see the body start to shift within a few weeks.`;
+    if (body_type === 'overweight')  return `The combination of lifting and hitting your steps every day is the most powerful fat loss tool there is. Don't rush it — the plan is already working even when the scale moves slowly.`;
+    if (body_type === 'athletic')    return `You already have a base to work with. The goal is to sharpen it — tighten the nutrition, push the lifts, and build the habits that make this permanent.`;
+    return `You've got a solid starting point. The combination of these workouts and this nutrition approach will produce visible results within two weeks.`;
+  }
+
+  // ── ACTIVITY NOTE ──────────────────────────────────────────
+  function activityNote() {
+    if (activity === 'sedentary') return `Since your daily life is mostly sedentary, hitting 8,000 steps will require intentional effort — short walks, parking farther away, walking after meals. Build those habits this week.`;
+    if (activity === 'light')     return `You already move some during the day — that's a head start on your step goal. Stack a short morning walk and an evening walk and you'll hit 8,000 without thinking about it.`;
+    return `Your active daily life already builds a step base. Use a phone or watch to confirm you're hitting 8,000 — you likely already are on most days.`;
+  }
+
+  // ── TRAINING SPLITS ────────────────────────────────────────
+
+  const UPPER_MALE_A = [
+    { name: 'Barbell Bench Press',        sets: 3, note: 'Chest, shoulders, triceps' },
+    { name: 'Barbell Bent-Over Row',      sets: 3, note: 'Back, biceps' },
+    { name: 'Seated Dumbbell OHP',        sets: 3, note: 'Shoulders' },
+    { name: 'Weighted Pull-Up or Lat Pulldown', sets: 3, note: 'Back width, biceps' },
+    { name: 'Incline Dumbbell Press',     sets: 2, note: 'Upper chest' },
+    { name: 'Barbell or Dumbbell Curl',   sets: 2, note: 'Biceps' },
+  ];
+
+  const UPPER_MALE_B = [
+    { name: 'Incline Barbell Press',      sets: 3, note: 'Upper chest, shoulders' },
+    { name: 'Cable or Machine Row',       sets: 3, note: 'Back thickness' },
+    { name: 'Arnold Press',               sets: 3, note: 'Full shoulder development' },
+    { name: 'Chest-Supported DB Row',     sets: 3, note: 'Back, rear delts' },
+    { name: 'Cable Fly or Pec Deck',      sets: 2, note: 'Chest isolation' },
+    { name: 'Skull Crushers or Pushdown', sets: 2, note: 'Triceps' },
+  ];
+
+  const LOWER_MALE_A = [
+    { name: 'Barbell Back Squat',         sets: 3, note: 'Quads, glutes, overall legs' },
+    { name: 'Romanian Deadlift',          sets: 3, note: 'Hamstrings, glutes' },
+    { name: 'Leg Press',                  sets: 3, note: 'Quads, glutes' },
+    { name: 'Leg Curl Machine',           sets: 2, note: 'Hamstrings' },
+    { name: 'Standing Calf Raise',        sets: 3, note: 'Calves' },
+  ];
+
+  const LOWER_MALE_B = [
+    { name: 'Conventional Deadlift',      sets: 3, note: 'Full posterior chain' },
+    { name: 'Hack Squat or Leg Press',    sets: 3, note: 'Quad focus' },
+    { name: 'Walking Lunges',             sets: 3, note: 'Quads, glutes, balance' },
+    { name: 'Leg Extension Machine',      sets: 2, note: 'Quad isolation' },
+    { name: 'Seated Calf Raise',          sets: 3, note: 'Calves' },
+  ];
+
+  const UPPER_FEMALE_A = [
+    { name: 'Dumbbell Bench Press',       sets: 3, note: 'Chest, shoulders, triceps' },
+    { name: 'Cable Row or Machine Row',   sets: 3, note: 'Back, biceps' },
+    { name: 'Dumbbell Lateral Raise',     sets: 3, note: 'Side delts — shoulder width' },
+    { name: 'Lat Pulldown',               sets: 3, note: 'Back width' },
+    { name: 'Dumbbell Curl',              sets: 2, note: 'Biceps' },
+    { name: 'Tricep Pushdown',            sets: 2, note: 'Triceps' },
+  ];
+
+  const UPPER_FEMALE_B = [
+    { name: 'Incline Dumbbell Press',     sets: 3, note: 'Upper chest, shoulders' },
+    { name: 'Chest-Supported DB Row',     sets: 3, note: 'Back thickness, rear delts' },
+    { name: 'Seated DB OHP',              sets: 3, note: 'Shoulder strength' },
+    { name: 'Assisted Pull-Up or Pulldown', sets: 3, note: 'Back, biceps' },
+    { name: 'Pec Deck or Cable Fly',      sets: 2, note: 'Chest' },
+    { name: 'Overhead Tricep Extension',  sets: 2, note: 'Triceps' },
+  ];
+
+  const LOWER_FEMALE_A = [
+    { name: 'Barbell Hip Thrust',         sets: 3, note: 'Glutes — top priority' },
+    { name: 'Barbell Back Squat',         sets: 3, note: 'Quads, glutes' },
+    { name: 'Romanian Deadlift',          sets: 3, note: 'Hamstrings, glutes' },
+    { name: 'Walking Lunges',             sets: 3, note: 'Glutes, quads, balance' },
+    { name: 'Abduction Machine',          sets: 3, note: 'Outer glutes, hips' },
+    { name: 'Standing Calf Raise',        sets: 2, note: 'Calves' },
+  ];
+
+  const LOWER_FEMALE_B = [
+    { name: 'Sumo Deadlift',              sets: 3, note: 'Inner thighs, glutes, hamstrings' },
+    { name: 'Leg Press (feet high/wide)', sets: 3, note: 'Glute-focused leg press' },
+    { name: 'Bulgarian Split Squat',      sets: 3, note: 'Single-leg glute and quad work' },
+    { name: 'Leg Curl Machine',           sets: 3, note: 'Hamstrings' },
+    { name: 'Cable Kickback',             sets: 2, note: 'Glute isolation' },
+    { name: 'Seated Calf Raise',          sets: 2, note: 'Calves' },
+  ];
+
+  const FULLBODY_MALE_BEG = [
+    { name: 'Barbell Back Squat',         sets: 2, note: 'Legs, glutes, core' },
+    { name: 'Barbell Bench Press',        sets: 2, note: 'Chest, shoulders, triceps' },
+    { name: 'Barbell Bent-Over Row',      sets: 2, note: 'Back, biceps' },
+    { name: 'Seated Dumbbell OHP',        sets: 2, note: 'Shoulders' },
+    { name: 'Romanian Deadlift',          sets: 2, note: 'Hamstrings, glutes' },
+    { name: 'Lat Pulldown',               sets: 2, note: 'Back width' },
+  ];
+
+  const FULLBODY_MALE_INT = [
+    { name: 'Barbell Back Squat',         sets: 3, note: 'Legs, glutes, core' },
+    { name: 'Barbell Bench Press',        sets: 3, note: 'Chest, shoulders, triceps' },
+    { name: 'Barbell Bent-Over Row',      sets: 3, note: 'Back, biceps' },
+    { name: 'Overhead Press',             sets: 3, note: 'Shoulders, upper chest' },
+    { name: 'Romanian Deadlift',          sets: 3, note: 'Hamstrings, glutes' },
+    { name: 'Weighted Pull-Up or Pulldown', sets: 2, note: 'Back width, biceps' },
+    { name: 'Dumbbell Curl',              sets: 2, note: 'Biceps' },
+  ];
+
+  const FULLBODY_FEMALE_BEG = [
+    { name: 'Barbell Hip Thrust',         sets: 2, note: 'Glutes — priority #1' },
+    { name: 'Goblet Squat',               sets: 2, note: 'Quads, glutes' },
+    { name: 'Romanian Deadlift',          sets: 2, note: 'Hamstrings, glutes' },
+    { name: 'Dumbbell Bench Press',       sets: 2, note: 'Chest, shoulders' },
+    { name: 'Lat Pulldown',               sets: 2, note: 'Back width' },
+    { name: 'Dumbbell Lateral Raise',     sets: 2, note: 'Shoulders' },
+  ];
+
+  const FULLBODY_FEMALE_INT = [
+    { name: 'Barbell Hip Thrust',         sets: 3, note: 'Glutes — priority #1' },
+    { name: 'Barbell Back Squat',         sets: 3, note: 'Quads, glutes' },
+    { name: 'Romanian Deadlift',          sets: 3, note: 'Hamstrings, glutes' },
+    { name: 'Dumbbell Bench Press',       sets: 2, note: 'Chest, shoulders' },
+    { name: 'Cable Row',                  sets: 3, note: 'Back, biceps' },
+    { name: 'Dumbbell Lateral Raise',     sets: 2, note: 'Shoulders' },
+    { name: 'Walking Lunges',             sets: 2, note: 'Glutes, quads' },
+  ];
+
+  // ── SELECT EXERCISES BASED ON SPLIT ────────────────────────
+  const isAdv = experience === 'advanced';
+  const isInt = experience === 'intermediate';
+  const isBeg = experience === 'beginner';
+  const setsMod = (isAdv || isInt) ? 3 : 2;
+
+  function formatExercises(list, sessionLabel) {
+    let html = `<h3>${sessionLabel}</h3><ul>`;
+    list.forEach(ex => {
+      html += `<li><strong>${ex.name}</strong> — ${ex.sets} sets × 8–12 reps <span class="ex-note">(${ex.note})</span></li>`;
+    });
+    html += `</ul>`;
+    return html;
+  }
+
+  // ── BUILD SCHEDULE + EXERCISES ─────────────────────────────
+  let scheduleHtml = '';
+  let exerciseHtml = '';
+  let weekDays = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+  if (numDays <= 3) {
+    // FULL BODY
+    const fbExercises = isMale
+      ? (isBeg ? FULLBODY_MALE_BEG : FULLBODY_MALE_INT)
+      : (isBeg ? FULLBODY_FEMALE_BEG : FULLBODY_FEMALE_INT);
+
+    let schedule = [];
+    if (numDays === 2) {
+      schedule = [
+        { day: 'Monday',    type: '🏋️ Full Body', session: 'Full Body' },
+        { day: 'Tuesday',   type: '🚶 Rest / Steps', session: null },
+        { day: 'Wednesday', type: '🚶 Rest / Steps', session: null },
+        { day: 'Thursday',  type: '🏋️ Full Body', session: 'Full Body' },
+        { day: 'Friday',    type: '🚶 Rest / Steps', session: null },
+        { day: 'Saturday',  type: '🚶 Active Rest', session: null },
+        { day: 'Sunday',    type: '🚶 Rest', session: null },
+      ];
+    } else {
+      schedule = [
+        { day: 'Monday',    type: '🏋️ Full Body A', session: 'Full Body' },
+        { day: 'Tuesday',   type: '🚶 Rest / Steps', session: null },
+        { day: 'Wednesday', type: '🏋️ Full Body B', session: 'Full Body' },
+        { day: 'Thursday',  type: '🚶 Rest / Steps', session: null },
+        { day: 'Friday',    type: '🏋️ Full Body C', session: 'Full Body' },
+        { day: 'Saturday',  type: '🚶 Active Rest', session: null },
+        { day: 'Sunday',    type: '🚶 Rest', session: null },
+      ];
+    }
+
+    scheduleHtml = '<ul>' + schedule.map(s =>
+      `<li><strong>${s.day}:</strong> ${s.type}</li>`
+    ).join('') + '</ul>';
+
+    exerciseHtml = formatExercises(fbExercises, 'Every Training Session (same exercises, add weight over time)');
+    exerciseHtml += `<blockquote>Progressive overload: Start a new weight at 6 reps to failure. Once you can hit 10 reps with that same weight, increase by 10–20 lbs and start over. Last set of each exercise to failure only.</blockquote>`;
+
+  } else {
+    // UPPER / LOWER SPLIT
+    const upperA = isMale ? UPPER_MALE_A : UPPER_FEMALE_A;
+    const upperB = isMale ? UPPER_MALE_B : UPPER_FEMALE_B;
+    const lowerA = isMale ? LOWER_MALE_A : LOWER_FEMALE_A;
+    const lowerB = isMale ? LOWER_MALE_B : LOWER_FEMALE_B;
+
+    let schedule = [];
+    if (numDays === 4) {
+      schedule = [
+        { day: 'Monday',    type: '🏋️ Upper A' },
+        { day: 'Tuesday',   type: '🏋️ Lower A' },
+        { day: 'Wednesday', type: '🚶 Rest / Steps' },
+        { day: 'Thursday',  type: '🏋️ Upper B' },
+        { day: 'Friday',    type: '🏋️ Lower B' },
+        { day: 'Saturday',  type: '🚶 Active Rest' },
+        { day: 'Sunday',    type: '🚶 Rest' },
+      ];
+    } else {
+      schedule = [
+        { day: 'Monday',    type: '🏋️ Upper A' },
+        { day: 'Tuesday',   type: '🏋️ Lower A' },
+        { day: 'Wednesday', type: '🚶 Rest / Steps' },
+        { day: 'Thursday',  type: '🏋️ Upper B' },
+        { day: 'Friday',    type: '🏋️ Lower B' },
+        { day: 'Saturday',  type: '🏋️ Upper A (repeat)' },
+        { day: 'Sunday',    type: '🚶 Rest' },
+      ];
+    }
+
+    scheduleHtml = '<ul>' + schedule.map(s =>
+      `<li><strong>${s.day}:</strong> ${s.type}</li>`
+    ).join('') + '</ul>';
+
+    exerciseHtml  = formatExercises(upperA, 'Upper Body A');
+    exerciseHtml += formatExercises(lowerA, 'Lower Body A');
+    exerciseHtml += formatExercises(upperB, 'Upper Body B');
+    exerciseHtml += formatExercises(lowerB, 'Lower Body B');
+    exerciseHtml += `<blockquote>Progressive overload: Start a new weight at 6 reps to failure. Once you can hit 10 reps with that same weight, increase by 10–20 lbs and start over. Last set of each exercise to failure only.</blockquote>`;
+  }
+
+  // ── GOAL-SPECIFIC NUTRITION TONE ───────────────────────────
+  function nutritionFocus() {
+    if (goal === 'fat_loss') return `Your goal is fat loss, so the most important thing is staying on the approved food list and stopping when you're no longer hungry — not when you're full. These foods naturally regulate appetite. You won't need to track calories or restrict yourself — the food choices do the work.`;
+    if (goal === 'muscle')   return `Your goal is building muscle, so don't under-eat. Eat when you're hungry, prioritize red meat and dairy as your foundation, and make sure protein is in every meal. Your body needs fuel to build — this is not a diet phase.`;
+    if (goal === 'recomp')   return `Recomposition — losing fat and building muscle simultaneously — works best when you eat clean, lift hard, and let the body sort itself out. These foods support both goals at once. Don't restrict; just stay on the list.`;
+    return `You're building health from the ground up. These foods aren't a temporary fix — they're the long-term foundation of a body that runs well without needing shortcuts or supplements.`;
+  }
+
+  // ── 7-DAY ROADMAP ──────────────────────────────────────────
+  function buildRoadmap(schedule) {
+    const days = [
+      { label: 'Day 1 — Monday',    training: schedule[0] },
+      { label: 'Day 2 — Tuesday',   training: schedule[1] },
+      { label: 'Day 3 — Wednesday', training: schedule[2] },
+      { label: 'Day 4 — Thursday',  training: schedule[3] },
+      { label: 'Day 5 — Friday',    training: schedule[4] },
+      { label: 'Day 6 — Saturday',  training: schedule[5] },
+      { label: 'Day 7 — Sunday',    training: schedule[6] },
+    ];
+
+    const habitCues = [
+      'Start your morning with natural sunlight — even 5 minutes outside.',
+      'No phone for the first 10 minutes after waking. Drink a glass of water first.',
+      'Walk after your largest meal of the day. Even 10 minutes helps.',
+      'Before bed: no screens 30 minutes out. Your sleep quality will thank you.',
+      'Check in with yourself: are you eating from hunger, or boredom? Stay intentional.',
+      'Have your one daily cheat item ready so it feels like a reward, not a failure.',
+      'Reflect on the week: what went well? What was hard? Note it — that\'s your data.',
+    ];
+
+    const eatFocus = [
+      'Red meat as your main protein today. Fruit with or before your workout.',
+      'Whole milk or full-fat Greek yogurt with breakfast. Chicken or fish for dinner.',
+      'Focus on fruit today — watermelon, grapes, oranges. Orange juice in the morning.',
+      'Red meat at lunch or dinner. Butter on everything you cook. Honey if you want something sweet.',
+      'Fish or chicken today. Full-fat dairy as a snack. Your one cheat item if you want it.',
+      'Keep it simple today — red meat, fruit, dairy. Enjoy your cheat item.',
+      'Eat relaxed today. Stay on the list. Note what foods felt best this week.',
+    ];
+
+    let html = '';
+    days.forEach((d, i) => {
+      const isTraining = d.training && d.training.session !== null && !d.training.type.includes('Rest');
+      const trainLine = isTraining
+        ? `🏋️ <strong>Train today:</strong> ${d.training.type.replace('🏋️ ', '')}`
+        : `🚶 <strong>Rest day:</strong> Steps are the workout today. Hit 8,000.`;
+      html += `<div class="day-card">
+        <div class="day-label">${d.label}</div>
+        <ul>
+          <li>${trainLine}</li>
+          <li>📍 <strong>Steps:</strong> 8,000+ minimum${isTraining ? ' — steps still count on training days' : ''}</li>
+          <li>🍽️ <strong>Eat:</strong> ${eatFocus[i]}</li>
+          <li>💡 <strong>Habit:</strong> ${habitCues[i]}</li>
+        </ul>
+      </div>`;
+    });
+    return html;
+  }
+
+  // Build the schedule array for roadmap
+  let roadmapSchedule = [];
+  if (numDays === 2) {
+    roadmapSchedule = [
+      { type: '🏋️ Full Body', session: 'Full Body' },
+      { type: '🚶 Rest / Steps', session: null },
+      { type: '🚶 Rest / Steps', session: null },
+      { type: '🏋️ Full Body', session: 'Full Body' },
+      { type: '🚶 Rest / Steps', session: null },
+      { type: '🚶 Active Rest', session: null },
+      { type: '🚶 Rest', session: null },
+    ];
+  } else if (numDays === 3) {
+    roadmapSchedule = [
+      { type: '🏋️ Full Body A', session: 'Full Body' },
+      { type: '🚶 Rest / Steps', session: null },
+      { type: '🏋️ Full Body B', session: 'Full Body' },
+      { type: '🚶 Rest / Steps', session: null },
+      { type: '🏋️ Full Body C', session: 'Full Body' },
+      { type: '🚶 Active Rest', session: null },
+      { type: '🚶 Rest', session: null },
+    ];
+  } else if (numDays === 4) {
+    roadmapSchedule = [
+      { type: '🏋️ Upper A', session: 'Upper A' },
+      { type: '🏋️ Lower A', session: 'Lower A' },
+      { type: '🚶 Rest / Steps', session: null },
+      { type: '🏋️ Upper B', session: 'Upper B' },
+      { type: '🏋️ Lower B', session: 'Lower B' },
+      { type: '🚶 Active Rest', session: null },
+      { type: '🚶 Rest', session: null },
+    ];
+  } else {
+    roadmapSchedule = [
+      { type: '🏋️ Upper A', session: 'Upper A' },
+      { type: '🏋️ Lower A', session: 'Lower A' },
+      { type: '🚶 Rest / Steps', session: null },
+      { type: '🏋️ Upper B', session: 'Upper B' },
+      { type: '🏋️ Lower B', session: 'Lower B' },
+      { type: '🏋️ Upper A (repeat)', session: 'Upper A' },
+      { type: '🚶 Rest', session: null },
+    ];
+  }
+
+  // ── ASSEMBLE THE FULL PLAN ──────────────────────────────────
+  const splitName = numDays <= 3 ? 'Full Body 3×/week' : 'Upper / Lower Split';
+  const goalLabel = { fat_loss: 'Fat Loss', muscle: 'Muscle Building', recomp: 'Body Recomposition', health: 'General Health' }[goal] || goal;
+
+  const plan = `
+<h1>Hey ${name} — here's your plan.</h1>
+<p>${struggleNote()} ${bodyTypeNote()}</p>
+
+<h1>Your Weekly Training Schedule</h1>
+<p>Based on your ${numDays} days/week, you're on a <strong>${splitName}</strong>.</p>
+${scheduleHtml}
+<p><em>Workouts run 45–55 minutes. Never more than an hour.</em></p>
+
+<h1>Your Workout Breakdown</h1>
+${exerciseHtml}
+
+<h1>Your Nutrition Approach</h1>
+<p>${nutritionFocus()}</p>
+<h3>Approved Foods — Eat These Freely</h3>
+<ul>
+  <li><strong>Red meat (~80% lean)</strong> — ground beef, ribeye, NY strip. This is your foundation. Eat it often.</li>
+  <li><strong>Sugary/watery fruit</strong> — watermelon, grapes, oranges, berries, bananas, melon. Great any time, especially pre-workout.</li>
+  <li><strong>Dairy</strong> — whole milk, full-fat Greek yogurt, butter, full-fat cheese. Don't fear the fat.</li>
+  <li><strong>Chicken and fish</strong> — grilled, baked, pan-seared. Secondary to red meat but excellent.</li>
+  <li><strong>Honey</strong> — use it as a sweetener. It's real food.</li>
+  <li><strong>Organ meats</strong> — liver, heart (optional, but incredibly nutrient-dense if you're up for it).</li>
+  <li><strong>One daily cheat item</strong> — anything you want, under 400 calories. This is your daily release valve.</li>
+</ul>
+<h3>Avoid These Completely</h3>
+<ul>
+  <li>Vegetables, grains, bread, pasta, rice, crackers</li>
+  <li>Candy, chips, ultra-processed snacks (except your one daily cheat item)</li>
+  <li>Seed oils — use butter instead</li>
+  <li>Alcohol — ideally none; max 3 drinks per week if needed</li>
+</ul>
+<h3>Two Simple Rules</h3>
+<ul>
+  <li><strong>Pre-workout:</strong> In the 90 minutes before training, eat only fruit. Nothing else. This is the best fuel for your session.</li>
+  <li><strong>Morning:</strong> Orange juice (not from concentrate, no added sugar) in the morning is encouraged. It's real food.</li>
+</ul>
+<p>Your protein target is <strong>${proteinLow}–${proteinHigh}g/day</strong>. You don't need to track it — just make sure a protein source (red meat, dairy, chicken, fish) anchors every meal.</p>
+<blockquote>Eat when you're hungry. Stop when you're no longer hungry — not when you're full. There's a difference. Learn to feel it.</blockquote>
+
+<h1>Daily Non-Negotiables</h1>
+<ul>
+  <li>✅ <strong>8,000+ steps every single day</strong> — training days included. This is non-negotiable.</li>
+  <li>✅ <strong>7 hours of sleep minimum</strong> — 8 is the target. This is where your body actually changes.</li>
+  <li>✅ <strong>Morning sunlight</strong> — get outside within an hour of waking. 5–10 minutes minimum. It sets your circadian rhythm and improves everything.</li>
+  <li>✅ <strong>Eat only from the approved list</strong> — plus your one daily cheat item. No exceptions during these 7 days.</li>
+  <li>✅ <strong>Minimize stress</strong> — stress raises cortisol, cortisol holds fat and kills muscle. Protect your energy.</li>
+</ul>
+${sleepNote()}
+
+<h1>Your 7-Day Roadmap</h1>
+<p>Here's exactly what to focus on each day.</p>
+${buildRoadmap(roadmapSchedule)}
+
+<h1>A Note From Eli</h1>
+<p>The goal here isn't to survive 7 days and quit. It's to prove to yourself that this way of living is actually enjoyable — not a grind. Real food, real movement, real sleep. No GLP-1 drugs, no starvation, no complicated systems built to fail.</p>
+<p>Come out of this week with one habit locked in. Then add another. That's how it compounds. <strong>Start today.</strong></p>
+`;
+
+  return plan.trim();
+}
+
+// Export for use in HTML
+</script>
+<script>
+  // chip toggle
+  document.querySelectorAll('.chip').forEach(c =>
+    c.addEventListener('click', () => c.classList.toggle('selected'))
+  );
+
+  function fv(id) { return document.getElementById(id).value.trim(); }
+  function getChips() {
+    return [...document.querySelectorAll('#f-struggles .chip.selected')].map(c => c.dataset.val);
+  }
+
+  function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function handleGenerate() {
+    const name     = fv('f-name');
+    const age      = fv('f-age');
+    const weight   = fv('f-weight');
+    const gender   = fv('f-gender');
+    const goal     = fv('f-goal');
+    const body     = fv('f-body');
+    const exp      = fv('f-exp');
+    const days     = fv('f-days');
+    const activity = fv('f-activity');
+    const sleep    = fv('f-sleep');
+
+    const errEl = document.getElementById('err-msg');
+    const missing = [];
+    if (!name)     missing.push('first name');
+    if (!age)      missing.push('age');
+    if (!weight)   missing.push('weight');
+    if (!gender)   missing.push('gender');
+    if (!goal)     missing.push('goal');
+    if (!body)     missing.push('body type');
+    if (!exp)      missing.push('experience');
+    if (!days)     missing.push('training days');
+    if (!activity) missing.push('activity level');
+    if (!sleep)    missing.push('sleep');
+
+    if (missing.length) {
+      errEl.style.display = 'block';
+      errEl.textContent = 'Please complete: ' + missing.join(', ') + '.';
+      return;
+    }
+    errEl.style.display = 'none';
+
+    const intake = {
+      name, age, weight, gender, goal,
+      body_type: body,
+      experience: exp,
+      days, activity, sleep,
+      height: fv('f-height'),
+      struggles: getChips()
+    };
+
+    // Generate plan instantly — no API call
+    const planHtml = generateKickstartPlan(intake);
+
+    const wt = parseFloat(weight);
+    const goalLabel = {
+      fat_loss: 'Fat Loss', muscle: 'Muscle Building',
+      recomp: 'Body Recomposition', health: 'General Health'
+    }[goal] || goal;
+
+    document.getElementById('plan-title').innerHTML =
+      `${name}'s <span class="accent">7-Day Plan</span>`;
+
+    document.getElementById('plan-meta').innerHTML = [
+      `${days} training days/week`,
+      goalLabel,
+      `${Math.round(wt * 0.7)}–${Math.round(wt * 1.0)}g protein/day`
+    ].map(t => `<span>${t}</span>`).join('');
+
+    document.getElementById('plan-output').innerHTML = planHtml;
+    showScreen('plan-screen');
+  }
+
+  function restart() { showScreen('intake-screen'); }
+</script>
+</body>
+</html>
