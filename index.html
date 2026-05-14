@@ -144,9 +144,7 @@
         @media (min-width: 580px) {
             .testimonials { grid-template-columns: 1fr 1fr; }
         }
-        @media (min-width: 820px) {
-            .testimonials { grid-template-columns: 1fr 1fr 1fr; }
-        }
+
         .testimonial {
             background: #14151E;
             border: 1px solid #22233A;
@@ -193,11 +191,53 @@
         .photo-eli-wrap { width: 80px; height: 80px; }
         .photo-eli { transform: scale(1.5); transform-origin: 50% 20%; }
 
-        .coach-card {
-            background: #0F1623;
+        /* ─── COACH INTRO CARD ─── */
+        .coach-intro-card {
+            display: flex;
+            max-width: 640px;
+            margin: 0 auto;
+            border-radius: 14px;
+            overflow: hidden;
             border: 1.5px solid #4A90E2;
-            border-radius: 12px;
-            padding: 24px 22px;
+            background: #0F1623;
+            aspect-ratio: 5 / 4;
+        }
+        .coach-intro-photo-wrap {
+            width: 40%;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .coach-intro-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 20%;
+        }
+        .coach-intro-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 28px 26px;
+            gap: 12px;
+        }
+        .coach-intro-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #E8E8F0;
+        }
+        .coach-intro-role {
+            font-size: 0.78rem;
+            color: #4A90E2;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: -6px;
+        }
+        .coach-intro-quote {
+            font-size: 0.91rem;
+            color: #A0A0C0;
+            line-height: 1.72;
         }
 
         .testimonial-name { font-size: 0.92rem; font-weight: 600; color: #E8E8F0; }
@@ -429,10 +469,18 @@
             Stop putting yourself through grueling workouts and tedious calorie-tracking. This step-by-step coaching system combines personalized nutrition, quick workouts, and 1-on-1 accountability to help you reach your health and fitness goals while using GLP-1s.
         </p>
 
-        <!-- Replace this div with your video embed -->
-        <div class="vsl-wrap">
-            <div class="vsl-play"></div>
-            <span class="vsl-hint">Replace with your video</span>
+        <!-- Coach intro card -->
+        <div class="coach-intro-card">
+            <div class="coach-intro-photo-wrap">
+                <img class="coach-intro-photo" src="attachments/eli.jpg" alt="Eli Kopcha">
+            </div>
+            <div class="coach-intro-body">
+                <div>
+                    <div class="coach-intro-name">Eli Kopcha</div>
+                    <div class="coach-intro-role">Your Coach</div>
+                </div>
+                <p class="coach-intro-quote">"I've spent countless hours working out, dieting, and researching everything about fitness — and a large chunk of that research has been on GLP-1 medications. They're a great tool, and I've personally used them. But they're very easy to misuse. Without a proper system in place, they won't bring you the change you want. That's exactly why I built this coaching program."</p>
+            </div>
         </div>
     </section>
 
@@ -455,20 +503,6 @@
                     </div>
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-quote">"I'm down to 169 lbs — a weight I genuinely haven't seen in years. I wasn't sure how quickly things would move, but the program made it straightforward. The progress has been real and it's kept me motivated to keep going."</p>
-                </div>
-
-                <!-- ELI (COACH) -->
-                <div class="testimonial coach-card">
-                    <div class="testimonial-header">
-                        <div class="photo-wrap photo-eli-wrap">
-                            <img class="testimonial-photo photo-eli" src="attachments/eli.jpg" alt="Eli">
-                        </div>
-                        <div>
-                            <div class="testimonial-name">Eli Kopcha</div>
-                            <div class="testimonial-tag">Your Coach</div>
-                        </div>
-                    </div>
-                    <p class="testimonial-quote" style="font-style: normal; color: #B0B0C8;">"I've spent countless hours working out, dieting, and researching everything about fitness. A large chunk of that research has been on GLP-1 medications. They're a great tool, and I personally have used them — but they're very easy to misuse. The truth is, without a proper system in place they won't bring you the change you want. That's why I created my coaching program."</p>
                 </div>
 
                 <!-- MAX -->
