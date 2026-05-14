@@ -325,7 +325,112 @@
             .final-cta { padding: 56px 20px; }
         }
 
+        /* ─── MAILERLITE OVERRIDES ─── */
+        .ml-embedded { width: 100%; }
+        .ml-form-embedWrapper {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        .ml-form-align-center { width: 100% !important; }
+        .ml-form-embedBody,
+        .ml-form-embedBody.ml-form-embedBodyDefault {
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+        .ml-form-embedContent { display: none !important; }
+        .ml-form-embedBody label {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.81rem !important;
+            font-weight: 600 !important;
+            color: #6868A0 !important;
+            letter-spacing: 0.02em !important;
+            margin-bottom: 6px !important;
+            display: block !important;
+        }
+        .ml-form-embedBody .ml-form-fieldRow {
+            margin-bottom: 14px !important;
+            padding: 0 !important;
+            float: none !important;
+            width: 100% !important;
+        }
+        .ml-form-embedBody input[type="text"],
+        .ml-form-embedBody input[type="email"],
+        .ml-form-embedBody input[type="tel"],
+        .ml-form-embedBody input[type="number"],
+        .ml-form-embedBody textarea {
+            background: #0B0B0F !important;
+            border: 1.5px solid #22233A !important;
+            border-radius: 8px !important;
+            padding: 12px 14px !important;
+            font-size: 0.93rem !important;
+            color: #E8E8F0 !important;
+            font-family: 'Inter', sans-serif !important;
+            outline: none !important;
+            width: 100% !important;
+            box-shadow: none !important;
+            transition: border-color 0.18s ease !important;
+            height: auto !important;
+        }
+        .ml-form-embedBody input:focus,
+        .ml-form-embedBody textarea:focus {
+            border-color: #4A90E2 !important;
+            box-shadow: none !important;
+        }
+        .ml-form-embedBody input::placeholder,
+        .ml-form-embedBody textarea::placeholder { color: #404060 !important; }
+        .ml-form-embedBody textarea { min-height: 86px !important; resize: vertical !important; }
+        .ml-form-embedSubmit { margin-top: 10px !important; }
+        .ml-form-embedSubmit button,
+        .ml-form-embedSubmit button[type="submit"] {
+            background: #4A90E2 !important;
+            color: #FFF !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            border: none !important;
+            border-radius: 8px !important;
+            padding: 15px 20px !important;
+            width: 100% !important;
+            cursor: pointer !important;
+            letter-spacing: 0.01em !important;
+            transition: background 0.18s ease !important;
+            box-shadow: none !important;
+        }
+        .ml-form-embedSubmit button:hover { background: #2E6BC0 !important; }
+        .ml-form-successBody {
+            background: transparent !important;
+            padding: 20px 0 !important;
+            text-align: center !important;
+        }
+        .ml-form-successContent h4 {
+            color: #E8E8F0 !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1.1rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 8px !important;
+        }
+        .ml-form-successContent p {
+            color: #7878A0 !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.93rem !important;
+        }
+        .ml-form-embedFooter,
+        .ml-form-branding { display: none !important; }
+
     </style>
+
+    <!-- MailerLite Universal -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);}(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml'));
+        ml('account', '2277738');
+    </script>
+    <!-- End MailerLite Universal -->
 </head>
 <body>
 
@@ -357,25 +462,7 @@
                 <div class="form-title">Get Your Free Analysis</div>
                 <div class="form-subtitle">Takes less than 60 seconds to fill out.</div>
 
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="First and last name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="goal">Your Goal or Question <span class="optional">(optional)</span></label>
-                        <textarea id="goal" name="goal" placeholder="e.g. I want to lose 25 lbs and feel stronger. Not sure where to start…"></textarea>
-                    </div>
-                    <button type="submit" class="form-btn">Get My Free Analysis →</button>
-                </form>
+                <div class="ml-embedded" data-form="B96ebj"></div>
 
                 <p class="form-note">Your information is private and will never be shared.</p>
             </div>
