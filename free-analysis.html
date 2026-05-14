@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Physique Analysis + 7-Day Kickstart — Eli Kopcha Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        /* ─── RESET & BASE ─── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0B0B0F;
+            color: #E8E8F0;
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── TOP BAR ─── */
+        .top-bar {
+            background: #0B0B0F;
+            border-bottom: 1px solid #1E1E30;
+            padding: 18px 24px;
+            text-align: center;
+        }
+        .brand-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #E8E8F0;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: #0B0B0F;
+            padding: 72px 24px 80px;
+        }
+        .hero-inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            display: grid;
+            gap: 48px;
+            align-items: center;
+        }
+        @media (min-width: 800px) {
+            .hero-inner {
+                grid-template-columns: 1fr 400px;
+                gap: 64px;
+            }
+        }
+
+        /* ─── HERO COPY ─── */
+        .free-pill {
+            display: inline-block;
+            background: rgba(245, 197, 24, 0.1);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            color: #F5C518;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 22px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.1rem);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+            color: #E8E8F0;
+            margin-bottom: 20px;
+        }
+        .hero h1 .accent { color: #4A90E2; }
+        .hero .sub {
+            font-size: clamp(1rem, 2.2vw, 1.1rem);
+            color: #7878A0;
+            line-height: 1.72;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+        .reassurances {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .reassurance {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #9090B0;
+        }
+        .reassurance::before {
+            content: '✓';
+            color: #4A90E2;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        /* ─── FORM CARD ─── */
+        .form-card {
+            background: #14151E;
+            border: 1.5px solid #22233A;
+            border-radius: 16px;
+            padding: 36px 32px;
+        }
+        .form-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #E8E8F0;
+            margin-bottom: 4px;
+        }
+        .form-subtitle {
+            font-size: 0.84rem;
+            color: #5A5A80;
+            margin-bottom: 26px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .form-group label {
+            font-size: 0.81rem;
+            font-weight: 600;
+            color: #6868A0;
+            letter-spacing: 0.02em;
+        }
+        .form-group input,
+        .form-group textarea {
+            background: #0B0B0F;
+            border: 1.5px solid #22233A;
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 0.93rem;
+            color: #E8E8F0;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.18s ease;
+            width: 100%;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus { border-color: #4A90E2; }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: #404060; }
+        .form-group textarea { resize: vertical; min-height: 86px; }
+        .optional { color: #404060; font-weight: 400; }
+        .form-btn {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            background: #4A90E2;
+            color: #FFF;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.01em;
+            transition: background 0.18s ease;
+            margin-top: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-btn:hover { background: #2E6BC0; }
+        .form-note {
+            text-align: center;
+            font-size: 0.77rem;
+            color: #404060;
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+
+        /* ─── WHAT YOU GET ─── */
+        .what-you-get {
+            background: #0F1018;
+            padding: 80px 24px;
+        }
+        .section-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .section-heading {
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            font-weight: 700;
+            line-height: 1.18;
+            letter-spacing: -0.022em;
+            color: #E8E8F0;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .section-subhead {
+            font-size: 1rem;
+            color: #7878A0;
+            line-height: 1.72;
+            text-align: center;
+            max-width: 520px;
+            margin: 0 auto 48px;
+        }
+        .features-grid {
+            display: grid;
+            gap: 16px;
+        }
+        @media (min-width: 560px) {
+            .features-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 860px) {
+            .features-grid { grid-template-columns: 1fr 1fr 1fr; }
+        }
+        .feature-card {
+            background: #14151E;
+            border: 1px solid #22233A;
+            border-radius: 12px;
+            padding: 26px 24px;
+            display: flex;
+            flex-direction: column;
+        }
+        .feature-icon {
+            font-size: 1.4rem;
+            margin-bottom: 14px;
+            line-height: 1;
+        }
+        .feature-title {
+            font-size: 0.97rem;
+            font-weight: 700;
+            color: #E8E8F0;
+            margin-bottom: 9px;
+            line-height: 1.3;
+        }
+        .feature-desc {
+            font-size: 0.87rem;
+            color: #7878A0;
+            line-height: 1.62;
+            flex: 1;
+        }
+        .free-tag {
+            display: inline-block;
+            background: rgba(74, 144, 226, 0.08);
+            border: 1px solid rgba(74, 144, 226, 0.22);
+            color: #4A90E2;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 14px;
+            align-self: flex-start;
+        }
+
+        /* ─── FINAL CTA ─── */
+        .final-cta {
+            background: #07070D;
+            padding: 80px 24px;
+            text-align: center;
+        }
+        .final-cta-inner {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .final-cta-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #4A90E2;
+            color: #FFF;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: background 0.18s ease;
+            margin-bottom: 20px;
+        }
+        .final-cta-btn:hover { background: #2E6BC0; }
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .pill {
+            font-size: 0.79rem;
+            color: #5A5A80;
+            background: #14151E;
+            border: 1px solid #22233A;
+            border-radius: 20px;
+            padding: 5px 14px;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #07070D;
+            border-top: 1px solid #1C1C2E;
+            color: #404060;
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.83rem;
+            line-height: 1.8;
+        }
+        footer a { color: #7878A0; text-decoration: none; }
+        footer a:hover { color: #E8E8F0; }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 599px) {
+            .hero { padding: 48px 20px 56px; }
+            .form-card { padding: 28px 20px; }
+            .what-you-get { padding: 56px 20px; }
+            .final-cta { padding: 56px 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ─── TOP BAR ─── -->
+    <header class="top-bar">
+        <span class="brand-name">ELI KOPCHA COACHING</span>
+    </header>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+        <div class="hero-inner">
+
+            <!-- LEFT: Copy -->
+            <div class="hero-copy">
+                <div class="free-pill">100% Free — No Obligation</div>
+                <h1>Feeling stuck? Let's get you <span class="accent">a clear plan.</span></h1>
+                <p class="sub">
+                    If you've been struggling to see results — or you're not sure where to even start — you're not alone. Tell me about your goals and I'll put together a personalized physique analysis and 7-day kickstart plan. No cost. No pressure.
+                </p>
+                <div class="reassurances">
+                    <div class="reassurance">Free personalized physique analysis</div>
+                    <div class="reassurance">Free 7-day transformation kickstart plan</div>
+                    <div class="reassurance">No sales calls. No obligation.</div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Form -->
+            <div class="form-card">
+                <div class="form-title">Get Your Free Analysis</div>
+                <div class="form-subtitle">Takes less than 60 seconds to fill out.</div>
+
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="First and last name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal">Your Goal or Question <span class="optional">(optional)</span></label>
+                        <textarea id="goal" name="goal" placeholder="e.g. I want to lose 25 lbs and feel stronger. Not sure where to start…"></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">Get My Free Analysis →</button>
+                </form>
+
+                <p class="form-note">Your information is private and will never be shared.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ─── WHAT YOU GET ─── -->
+    <section class="what-you-get">
+        <div class="section-inner">
+            <div class="eyebrow">What's Included</div>
+            <h2 class="section-heading">Everything you need to get started.</h2>
+            <p class="section-subhead">No generic programs. No overwhelming protocols. Just a clear, personalized starting point — completely free.</p>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-title">Personalized Physique Analysis</div>
+                    <div class="feature-desc">I look at where you are right now — your body, your lifestyle, your habits — and identify exactly what's holding you back from the results you want.</div>
+                    <span class="free-tag">Included Free</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <div class="feature-title">7-Day Transformation Kickstart</div>
+                    <div class="feature-desc">A simple, realistic 7-day plan to get your momentum going — without overhauling your entire life in week one. Small steps that actually stick.</div>
+                    <span class="free-tag">Included Free</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <div class="feature-title">Simple Nutrition Guidance</div>
+                    <div class="feature-desc">No calorie counting, no complicated meal plans. Just clear guidance on how to eat in a way that supports your goals — and one you can actually sustain.</div>
+                    <span class="free-tag">Included Free</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <div class="feature-title">Sustainable Workout Recommendations</div>
+                    <div class="feature-desc">Short, effective workouts designed for real life. 2–4 sessions a week, built around your schedule — not the other way around.</div>
+                    <span class="free-tag">Included Free</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧭</div>
+                    <div class="feature-title">Habit & Lifestyle Guidance</div>
+                    <div class="feature-desc">Small, sustainable shifts that make a big difference over time. No extreme overhauls — just smart habits that compound into real, lasting change.</div>
+                    <span class="free-tag">Included Free</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-title">Clear Next Steps</div>
+                    <div class="feature-desc">You'll know exactly what to do and in what order. No more guessing, no more overwhelm — just a clear, confident direction forward.</div>
+                    <span class="free-tag">Included Free</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─── -->
+    <section class="final-cta">
+        <div class="final-cta-inner">
+            <div class="eyebrow">Ready to Start?</div>
+            <h2 class="section-heading" style="margin-bottom: 16px;">Your first step is free.</h2>
+            <p class="section-subhead">
+                You don't need to have it all figured out. Just tell me where you are and what you're after — I'll take it from there.
+            </p>
+            <a href="#name" class="final-cta-btn">Get My Free Analysis →</a>
+            <div class="pills">
+                <span class="pill">Free physique analysis</span>
+                <span class="pill">Free 7-day kickstart</span>
+                <span class="pill">No obligation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <p>Questions? <a href="mailto:elikopcha@gmail.com">elikopcha@gmail.com</a></p>
+        <p style="margin-top: 8px;">© 2026 ELI KOPCHA COACHING. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
