@@ -319,6 +319,71 @@
         .ps-solution { font-size: 0.93rem; color: #7878A0; line-height: 1.7; }
         .ps-solution strong { color: #4A90E2; font-weight: 600; }
 
+        /* ─── THE PROBLEMS ─── */
+        .problems { background: #0F1018; }
+        .problem-block { padding-bottom: 56px; }
+        .problem-block + .problem-block {
+            border-top: 1px solid #22233A;
+            padding-top: 56px;
+        }
+        .problem-headline {
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #E8E8F0;
+            margin-bottom: 12px;
+        }
+        .problem-subhead {
+            font-size: 1rem;
+            color: #7878A0;
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 620px;
+        }
+        .problem-cards {
+            display: grid;
+            gap: 16px;
+        }
+        @media (min-width: 600px) {
+            .problem-cards.two-col { grid-template-columns: 1fr 1fr; }
+        }
+        .problem-card {
+            background: #14151E;
+            border: 1px solid #22233A;
+            border-radius: 12px;
+            padding: 26px 24px;
+        }
+        .prob-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: #E86060;
+            margin-bottom: 8px;
+        }
+        .prob-body {
+            font-size: 0.92rem;
+            color: #7878A0;
+            line-height: 1.68;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #1C1C2E;
+        }
+        .sol-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 8px;
+        }
+        .sol-body {
+            font-size: 0.92rem;
+            color: #9090B0;
+            line-height: 1.68;
+        }
+
         /* ─── HOW IT WORKS ─── */
         .how { background: #07070D; }
         .how .eyebrow { color: #6BAAF0; }
@@ -592,34 +657,50 @@
         </div>
     </section>
 
-    <!-- ─── IS THIS FOR YOU? ─── -->
-    <section class="section for-you">
+    <!-- ─── THE PROBLEMS ─── -->
+    <section class="section problems">
         <div class="inner">
-            <div class="eyebrow">Why It's Not Your Fault</div>
-            <h2 class="section-heading">The scale is moving. But the mirror hasn't caught up.</h2>
-            <p class="section-body">Some weight has come off. But you still don't see the body you were expecting — and that's not a discipline problem. Most people on GLP-1s are missing the system that turns weight loss into an actual body transformation. Here's what's going wrong, and how this coaching fixes it.</p>
+            <div class="eyebrow">The Problems</div>
 
-            <div class="ps-grid">
+            <!-- Problem 1 -->
+            <div class="problem-block">
+                <h2 class="problem-headline">The scale is going down, but the mirror hasn't caught up.</h2>
+                <p class="problem-subhead">Some weight has come off. But you still don't see the body you were expecting — and that's not a discipline problem. Most people on GLP-1s are missing the system that turns weight loss into an actual body transformation.</p>
+                <div class="problem-cards two-col">
 
-                <div class="ps-card">
-                    <div class="ps-problem">Problem 01</div>
-                    <div class="ps-heading">You're losing weight — but your body doesn't show it.</div>
-                    <p class="ps-solution">Without strength training, much of what you lose is muscle, not fat. You end up lighter on the scale but softer everywhere else — less defined, not the look you were after. The training plan here is built to protect and build your muscle as the weight comes off, so what's left actually looks good.</p>
+                    <div class="problem-card">
+                        <div class="prob-label">The Problem</div>
+                        <p class="prob-body">GLP-1s dramatically cut your appetite — which means most people aren't eating enough protein or getting the nutrients their body needs. The result is muscle loss and a body that looks smaller, not better.</p>
+                        <div class="sol-label">How This Fixes It</div>
+                        <p class="sol-body">The nutrition plan here is built around a suppressed appetite. Simple, high-protein foods that keep your muscle intact and your body looking the way you want — without forcing you to eat more than you're comfortable with.</p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="prob-label">The Problem</div>
+                        <p class="prob-body">Most people on GLP-1s either skip resistance training entirely or do it without a real plan. Without it, a significant chunk of what you're losing is muscle — leaving you lighter but soft.</p>
+                        <div class="sol-label">How This Fixes It</div>
+                        <p class="sol-body">This program includes a 2–4 day training plan designed specifically to build and protect muscle while you lose fat, so what's left actually looks athletic and defined.</p>
+                    </div>
+
                 </div>
-
-                <div class="ps-card">
-                    <div class="ps-problem">Problem 02</div>
-                    <div class="ps-heading">You're getting smaller. But not leaner.</div>
-                    <p class="ps-solution">GLP-1s cut your appetite dramatically. When you're barely eating, your body starts burning muscle for fuel — leaving you thinner, but softer. Not the lean, defined look you wanted. And low energy on top of it. The nutrition plan here keeps your protein high so you lose actual fat, hold your muscle, and start seeing the shape you were expecting.</p>
-                </div>
-
-                <div class="ps-card">
-                    <div class="ps-problem">Problem 03</div>
-                    <div class="ps-heading">You're putting in the work. But you're not seeing it in the mirror.</div>
-                    <p class="ps-solution">Without the right training, you can spend months exercising and still not see the physical change you want. You need a plan that specifically targets muscle definition and body composition — not just burning calories. Short sessions, clear direction, simple movements. Every workout focused on how you actually want to look.</p>
-                </div>
-
             </div>
+
+            <!-- Problem 2 -->
+            <div class="problem-block">
+                <h2 class="problem-headline">You're scared you will regain all of the weight once you come off of the GLP-1.</h2>
+                <p class="problem-subhead">Coming off GLP-1s without the right habits already in place almost always leads to the weight coming back. The medication suppresses appetite — but it doesn't build the systems that keep you lean for life.</p>
+                <div class="problem-cards">
+
+                    <div class="problem-card">
+                        <div class="prob-label">The Problem</div>
+                        <p class="prob-body">Most people rely entirely on the medication to manage their weight. No nutrition habits. No training routine. No sustainable systems. So when they stop, everything comes back — sometimes faster than it came off.</p>
+                        <div class="sol-label">How This Fixes It</div>
+                        <p class="sol-body">This program is designed to build the habits that outlast the medication. By the time you come off your GLP-1, you'll already have the nutrition knowledge, training routine, and mindset to maintain your results permanently.</p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
