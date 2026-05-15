@@ -266,6 +266,38 @@
         .testimonial-stars { color: #F5C518; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 10px; }
         .testimonial-quote { font-size: 0.93rem; color: #9090B0; line-height: 1.68; font-style: italic; }
 
+        /* ─── IS THIS FOR YOU? ─── */
+        .fit-list {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+            margin-top: 32px;
+            margin-bottom: 36px;
+        }
+        .fit-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1rem;
+            color: #B0B0C8;
+            line-height: 1.55;
+        }
+        .fit-list li::before {
+            content: '✓';
+            color: #4A90E2;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .fit-conclusion {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #E8E8F0;
+            border-top: 1px solid #22233A;
+            padding-top: 28px;
+        }
+
         /* ─── PROBLEM VS SOLUTION ─── */
         .for-you { background: #0F1018; }
         .ps-grid { display: grid; gap: 20px; margin-top: 36px; }
@@ -591,6 +623,22 @@
         </div>
     </section>
 
+    <!-- ─── IS THIS FOR YOU? ─── -->
+    <section class="section for-you-check" style="background: #0B0B0F;">
+        <div class="inner">
+            <div class="eyebrow">Is This For You?</div>
+            <h2 class="section-heading">This was built for you if...</h2>
+            <ul class="fit-list">
+                <li>You're on a GLP-1 and are not happy with what you see in the mirror</li>
+                <li>You want an athletic-looking body, but don't have the time to spend forever in the gym</li>
+                <li>You've tried other programs but they were too complicated and restrictive</li>
+                <li>You're willing to commit to a simple, but effective plan</li>
+                <li>You want support from someone who has personal experience with GLP-1s, nutrition, and training</li>
+            </ul>
+            <p class="fit-conclusion">Then this program is a perfect fit for you.</p>
+        </div>
+    </section>
+
     <!-- ─── HOW IT WORKS ─── -->
     <section class="section how">
         <div class="inner">
@@ -706,7 +754,7 @@
                 <div class="guarantee-icon">🏆</div>
                 <div class="guarantee-text">
                     <strong>Results Guarantee</strong>
-                    Hit your agreed-upon milestone — and I'll personally cover a full month of your GLP-1 medication. I'm not offering a refund because I don't plan on needing to. I'm betting on your success.
+                    If you hit your goal weight, I will give you a $100 gift card to your favorite clothing store so you can show off your new body.
                 </div>
             </div>
         </div>
