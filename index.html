@@ -321,68 +321,25 @@
 
         /* ─── THE PROBLEMS ─── */
         .problems { background: #0F1018; }
-        .problem-block { padding-bottom: 56px; }
-        .problem-block + .problem-block {
-            border-top: 1px solid #22233A;
-            padding-top: 56px;
-        }
-        .problem-headline {
-            font-size: clamp(1.4rem, 3.5vw, 2rem);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            color: #E8E8F0;
-            margin-bottom: 12px;
-        }
-        .problem-subhead {
-            font-size: 1rem;
-            color: #7878A0;
-            line-height: 1.7;
-            margin-bottom: 28px;
-            max-width: 620px;
-        }
-        .problem-cards {
-            display: grid;
-            gap: 16px;
-        }
-        @media (min-width: 600px) {
-            .problem-cards.two-col { grid-template-columns: 1fr 1fr; }
-        }
-        .problem-card {
-            background: #14151E;
-            border: 1px solid #22233A;
+        .narrative-body { display: flex; flex-direction: column; gap: 18px; margin-bottom: 40px; }
+        .narrative-body p { font-size: 1.05rem; color: #7878A0; line-height: 1.82; }
+        .glp-callout {
+            background: rgba(74, 144, 226, 0.05);
+            border: 1.5px solid rgba(74, 144, 226, 0.28);
             border-radius: 12px;
-            padding: 26px 24px;
+            padding: 28px 30px;
+            margin-bottom: 52px;
         }
-        .prob-label {
-            font-size: 10px;
+        .glp-callout-label {
+            font-size: 11px;
             font-weight: 700;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            color: #E86060;
-            margin-bottom: 8px;
-        }
-        .prob-body {
-            font-size: 0.92rem;
-            color: #7878A0;
-            line-height: 1.68;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #1C1C2E;
-        }
-        .sol-label {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.13em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
             color: #4A90E2;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
-        .sol-body {
-            font-size: 0.92rem;
-            color: #9090B0;
-            line-height: 1.68;
-        }
+        .glp-callout p { font-size: 0.97rem; color: #A0A0C0; line-height: 1.78; }
+        .solution-block { border-top: 1px solid #22233A; padding-top: 52px; }
 
         /* ─── HOW IT WORKS ─── */
         .how { background: #07070D; }
@@ -664,60 +621,27 @@
     <!-- ─── THE PROBLEMS ─── -->
     <section class="section problems">
         <div class="inner">
-            <div class="eyebrow">The Problems</div>
+            <div class="eyebrow">The Problem</div>
+            <h2 class="section-heading">Most fitness programs are designed to fail you.</h2>
 
-            <!-- Problem 1 -->
-            <div class="problem-block">
-                <h2 class="problem-headline">The scale is going down, but the mirror hasn't caught up.</h2>
-                <p class="problem-subhead">Some weight has come off. But you still don't see the body you were expecting — and that's not a discipline problem. Most people on GLP-1s are missing the system that turns weight loss into an actual body transformation.</p>
-                <div class="problem-cards two-col">
-
-                    <div class="problem-card">
-                        <div class="prob-label">The Problem</div>
-                        <p class="prob-body">GLP-1s cut your appetite significantly, which sounds helpful until you realize you're barely eating. At that point, most people aren't getting nearly enough protein, and the body starts losing muscle instead of fat. You end up lighter, but not leaner.</p>
-                        <div class="sol-label">How This Fixes It</div>
-                        <p class="sol-body">The nutrition plan in this program is built with a suppressed appetite in mind. It focuses on high-protein foods that are filling and easy to eat in smaller amounts, so your body holds onto muscle and you actually start looking the way you want.</p>
-                    </div>
-
-                    <div class="problem-card">
-                        <div class="prob-label">The Problem</div>
-                        <p class="prob-body">Most people on GLP-1s aren't doing any resistance training, or they're going to the gym without a real plan. Either way, a lot of the weight they lose ends up being muscle, which is what makes you look lean and athletic rather than just thin.</p>
-                        <div class="sol-label">How This Fixes It</div>
-                        <p class="sol-body">The training plan here is 2 to 4 days per week, built to protect and build muscle while the weight comes off. Simple movements, clear structure, and nothing that requires hours in the gym.</p>
-                    </div>
-
-                </div>
+            <div class="narrative-body">
+                <p>Not because you're lazy or lack discipline. Because they were built for people who are already obsessed with fitness and handed to everyone else anyway.</p>
+                <p>They assume you have an hour a day to train, that you'll meal prep on Sundays, and that you'll push through cravings and 6am alarms until the results show up. Most people don't live like that. The ones who try usually quit within a month — not because they failed the program, but because the program was never realistic to begin with.</p>
             </div>
 
-            <!-- Problem 2 -->
-            <div class="problem-block">
-                <h2 class="problem-headline">You're scared you will regain all of the weight once you come off of the GLP-1.</h2>
-                <p class="problem-subhead">Coming off GLP-1s without the right habits already in place almost always leads to the weight coming back. The medication suppresses appetite — but it doesn't build the systems that keep you lean for life.</p>
-                <div class="problem-cards">
-
-                    <div class="problem-card">
-                        <div class="prob-label">The Problem</div>
-                        <p class="prob-body">Most people let the medication do all the work. They don't build any real habits around eating or training, so when they eventually stop using the GLP-1, their appetite comes back and nothing has changed. The weight comes back with it.</p>
-                        <div class="sol-label">How This Fixes It</div>
-                        <p class="sol-body">This program teaches you how to eat and train in a way that works long-term. By the time you stop using a GLP-1, you'll already know what to eat, how to train, and how to keep your results without the medication.</p>
-                    </div>
-
-                </div>
+            <!-- GLP-1 callout -->
+            <div class="glp-callout">
+                <div class="glp-callout-label">If you're on a GLP-1</div>
+                <p>If you're using Ozempic, Wegovy, or a similar medication — or you've recently come off one — there's an extra layer here that most coaches completely ignore. Without the right training and nutrition alongside it, up to 40% of the weight you lose can come from muscle. That means a slower metabolism, a softer look, and weight that comes right back when you stop. This program is one of the few built to specifically address that.</p>
             </div>
 
-            <!-- Problem 3 -->
-            <div class="problem-block">
-                <h2 class="problem-headline">You're still hungry and getting cravings — even on a GLP-1.</h2>
-                <p class="problem-subhead">GLP-1s reduce appetite, but they don't eliminate hunger or cravings entirely. Without the right eating strategy, you're still white-knuckling it through the day and feeling guilty every time a craving wins.</p>
-                <div class="problem-cards">
-
-                    <div class="problem-card">
-                        <div class="prob-label">The Problem</div>
-                        <p class="prob-body">Tracking calories and following a strict meal plan is hard for anyone. When your appetite is unpredictable on a GLP-1, it's even harder. Most people end up either overeating out of frustration or barely eating and feeling terrible, with no real middle ground.</p>
-                        <div class="sol-label">How This Fixes It</div>
-                        <p class="sol-body">This program is built around eating when you're genuinely hungry and stopping when you've had enough. No calorie counting, no food scales, no meal plans you have to follow perfectly. You eat real food in reasonable amounts and let your body do the rest.</p>
-                    </div>
-
+            <!-- Solution -->
+            <div class="solution-block">
+                <div class="eyebrow">The Solution</div>
+                <h2 class="section-heading">This program starts where you actually are.</h2>
+                <div class="narrative-body">
+                    <p>Three workouts a week. No cardio requirements. No foods you're banned from eating. No plan that assumes your life stops for fitness.</p>
+                    <p>Just a structured, flexible approach that builds the body you want around the life you already have — and keeps going until you get there.</p>
                 </div>
             </div>
 
