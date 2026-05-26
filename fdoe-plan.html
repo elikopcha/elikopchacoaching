@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Full Day of Eating — Eli Kopcha Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+        /* ─── RESET & BASE ─── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0B0B0F;
+            color: #E8E8F0;
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── TOP BAR ─── */
+        .top-bar {
+            background: #0B0B0F;
+            border-bottom: 1px solid #1E1E30;
+            padding: 18px 24px;
+            text-align: center;
+        }
+        .brand-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #E8E8F0;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            padding: 72px 24px 56px;
+            text-align: center;
+            background: #0B0B0F;
+        }
+        .hero-inner { max-width: 640px; margin: 0 auto; }
+        .hero-pill {
+            display: inline-block;
+            background: rgba(74, 144, 226, 0.1);
+            border: 1px solid rgba(74, 144, 226, 0.28);
+            color: #4A90E2;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 22px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.13;
+            letter-spacing: -0.025em;
+            color: #E8E8F0;
+            margin-bottom: 18px;
+        }
+        .hero h1 .accent { color: #4A90E2; }
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #7878A0;
+            line-height: 1.72;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ─── NUTRITION STATS ─── */
+        .stats-section {
+            background: #0F1018;
+            padding: 48px 24px;
+        }
+        .stats-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .stats-label {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #404060;
+            margin-bottom: 24px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+        @media (min-width: 560px) {
+            .stats-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        .stat-card {
+            background: #14151E;
+            border: 1px solid #22233A;
+            border-radius: 12px;
+            padding: 20px 16px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #E8E8F0;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .stat-value .stat-unit {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #5A5A80;
+        }
+        .stat-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #5A5A80;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .stat-card.calories .stat-value { color: #F5C518; }
+        .stat-card.protein .stat-value { color: #4A90E2; }
+        .stat-card.fat .stat-value { color: #E87040; }
+        .stat-card.carbs .stat-value { color: #50C878; }
+
+        /* ─── MEALS ─── */
+        .meals-section {
+            background: #0B0B0F;
+            padding: 72px 24px;
+        }
+        .meals-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .meals-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .meals-heading {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.18;
+            letter-spacing: -0.022em;
+            color: #E8E8F0;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        .meal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+        .meal-list::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 24px;
+            bottom: 24px;
+            width: 2px;
+            background: linear-gradient(to bottom, #4A90E2, #22233A);
+        }
+        .meal-item {
+            display: flex;
+            gap: 24px;
+            padding-bottom: 36px;
+            position: relative;
+        }
+        .meal-item:last-child { padding-bottom: 0; }
+        .meal-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #14151E;
+            border: 2px solid #4A90E2;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+        .meal-content {
+            flex: 1;
+            background: #14151E;
+            border: 1px solid #22233A;
+            border-radius: 12px;
+            padding: 22px 24px;
+            margin-top: -4px;
+        }
+        .meal-time {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 4px;
+        }
+        .meal-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #E8E8F0;
+            margin-bottom: 14px;
+        }
+        .meal-foods {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .meal-foods li {
+            font-size: 0.91rem;
+            color: #9090B0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.45;
+        }
+        .meal-foods li::before {
+            content: '·';
+            color: #4A90E2;
+            font-size: 1.3rem;
+            line-height: 1.1;
+            flex-shrink: 0;
+        }
+        .meal-note {
+            font-size: 0.82rem;
+            color: #5A5A80;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        /* ─── PHILOSOPHY ─── */
+        .philosophy {
+            background: #0F1018;
+            padding: 64px 24px;
+        }
+        .philosophy-inner {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .philosophy-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 14px;
+        }
+        .philosophy h2 {
+            font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+            font-weight: 700;
+            color: #E8E8F0;
+            margin-bottom: 18px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        .philosophy p {
+            font-size: 1rem;
+            color: #7878A0;
+            line-height: 1.78;
+            margin-bottom: 14px;
+        }
+        .philosophy p:last-child { margin-bottom: 0; }
+
+        /* ─── DOWNLOAD ─── */
+        .download-section {
+            background: #07070D;
+            padding: 72px 24px;
+            text-align: center;
+        }
+        .download-inner {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .download-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 14px;
+        }
+        .download-heading {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 700;
+            color: #E8E8F0;
+            margin-bottom: 14px;
+            letter-spacing: -0.022em;
+        }
+        .download-sub {
+            font-size: 1rem;
+            color: #7878A0;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: #4A90E2;
+            color: #FFF;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: background 0.18s ease;
+            margin-bottom: 16px;
+        }
+        .download-btn:hover { background: #2E6BC0; }
+        .download-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .download-note {
+            font-size: 0.8rem;
+            color: #404060;
+        }
+
+        /* ─── COACHING CTA ─── */
+        .coaching-cta {
+            background: rgba(74, 144, 226, 0.05);
+            border: 1.5px solid rgba(74, 144, 226, 0.22);
+            border-radius: 12px;
+            padding: 28px 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        .coaching-cta-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #4A90E2;
+            margin-bottom: 10px;
+        }
+        .coaching-cta p {
+            font-size: 0.95rem;
+            color: #9090B0;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        .coaching-cta a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: transparent;
+            border: 1.5px solid #4A90E2;
+            color: #4A90E2;
+            font-size: 0.92rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.18s ease, color 0.18s ease;
+        }
+        .coaching-cta a:hover { background: #4A90E2; color: #FFF; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #07070D;
+            border-top: 1px solid #1C1C2E;
+            color: #404060;
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.83rem;
+            line-height: 1.8;
+        }
+        footer a { color: #7878A0; text-decoration: none; }
+        footer a:hover { color: #E8E8F0; }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 499px) {
+            .hero { padding: 48px 20px 40px; }
+            .meals-section { padding: 52px 20px; }
+            .meal-list::before { left: 15px; }
+            .meal-dot { width: 32px; height: 32px; font-size: 0.9rem; }
+            .meal-content { padding: 18px 18px; }
+            .philosophy { padding: 48px 20px; }
+            .download-section { padding: 52px 20px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ─── TOP BAR ─── -->
+    <header class="top-bar">
+        <span class="brand-name">ELI KOPCHA COACHING</span>
+    </header>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-pill">Animal-Based Diet</div>
+            <h1>Your <span class="accent">Full Day of Eating</span></h1>
+            <p class="sub">
+                Real foods, real portions. This is exactly how I eat to stay lean, full, and energized — no tracking required.
+            </p>
+        </div>
+    </section>
+
+    <!-- ─── NUTRITION STATS ─── -->
+    <section class="stats-section">
+        <div class="stats-inner">
+            <p class="stats-label">Daily Targets</p>
+            <div class="stats-grid">
+                <div class="stat-card calories">
+                    <div class="stat-value">2,400<span class="stat-unit"> cal</span></div>
+                    <div class="stat-label">Calories</div>
+                </div>
+                <div class="stat-card protein">
+                    <div class="stat-value">170<span class="stat-unit">g</span></div>
+                    <div class="stat-label">Protein</div>
+                </div>
+                <div class="stat-card fat">
+                    <div class="stat-value">110<span class="stat-unit">g</span></div>
+                    <div class="stat-label">Fat</div>
+                </div>
+                <div class="stat-card carbs">
+                    <div class="stat-value">200<span class="stat-unit">g</span></div>
+                    <div class="stat-label">Carbs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── MEALS ─── -->
+    <section class="meals-section">
+        <div class="meals-inner">
+            <div class="meals-eyebrow">The Meals</div>
+            <h2 class="meals-heading">5 meals. Zero guesswork.</h2>
+
+            <div class="meal-list">
+
+                <!-- Breakfast -->
+                <div class="meal-item">
+                    <div class="meal-dot">🍊</div>
+                    <div class="meal-content">
+                        <div class="meal-time">7:00 AM</div>
+                        <div class="meal-name">Breakfast</div>
+                        <ul class="meal-foods">
+                            <li>Orange juice</li>
+                            <li>Bananas</li>
+                            <li>Whole-fat Greek yogurt with honey</li>
+                            <li>Seasonal fruit (optional)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mid-Morning -->
+                <div class="meal-item">
+                    <div class="meal-dot">🥚</div>
+                    <div class="meal-content">
+                        <div class="meal-time">10:30 AM</div>
+                        <div class="meal-name">Mid-Morning Snack</div>
+                        <ul class="meal-foods">
+                            <li>Oranges</li>
+                            <li>Pasture-raised eggs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lunch -->
+                <div class="meal-item">
+                    <div class="meal-dot">🥩</div>
+                    <div class="meal-content">
+                        <div class="meal-time">1:00 PM</div>
+                        <div class="meal-name">Lunch</div>
+                        <ul class="meal-foods">
+                            <li>Ground beef patties cooked in tallow or butter</li>
+                            <li>Aged cheddar</li>
+                            <li>Pineapple</li>
+                            <li>Water or coconut water</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Afternoon Snack -->
+                <div class="meal-item">
+                    <div class="meal-dot">🍉</div>
+                    <div class="meal-content">
+                        <div class="meal-time">4:00 PM</div>
+                        <div class="meal-name">Afternoon Snack</div>
+                        <ul class="meal-foods">
+                            <li>Full-fat Greek yogurt with honey</li>
+                            <li>Watermelon or orange</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dinner -->
+                <div class="meal-item">
+                    <div class="meal-dot">🍖</div>
+                    <div class="meal-content">
+                        <div class="meal-time">7:00 PM</div>
+                        <div class="meal-name">Dinner</div>
+                        <ul class="meal-foods">
+                            <li>Beef and chicken blend cooked in butter</li>
+                            <li>Pineapple</li>
+                            <li>Fresh herbs</li>
+                            <li>Milk or water</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PHILOSOPHY ─── */-->
+    <section class="philosophy">
+        <div class="philosophy-inner">
+            <div class="philosophy-eyebrow">Why It Works</div>
+            <h2>Meat, eggs, dairy, and fruit. That's it.</h2>
+            <p>These are the most bioavailable foods on earth. Your body absorbs and uses them efficiently — no bloating, no crashes, no fighting your hunger all day.</p>
+            <p>Fruit handles your carbohydrates cleanly, without processed grains or seed oils. High protein and quality fats from animal sources keep hunger under control and support your hormones. The result is a way of eating that feels natural, not forced.</p>
+        </div>
+    </section>
+
+    <!-- ─── DOWNLOAD ─── -->
+    <section class="download-section">
+        <div class="download-inner">
+            <div class="download-eyebrow">Take It With You</div>
+            <h2 class="download-heading">Download the guide.</h2>
+            <p class="download-sub">Save a copy of this plan so you can reference it anytime — whether you're at the grocery store or planning your week.</p>
+            <a href="https://docs.google.com/document/d/1dMYbfUwb9REkhsQWAEOX49kbJd0ZJBvUURQZKC99XQg/export?format=pdf" target="_blank" class="download-btn">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+            </a>
+            <p class="download-note">Opens as a PDF — works on any device</p>
+
+            <div class="coaching-cta">
+                <div class="coaching-cta-label">Want a personalized plan?</div>
+                <p>This is a sample of how I approach nutrition. If you want a plan built specifically around your body, your goals, and your lifestyle — that's what coaching is for.</p>
+                <a href="https://elikopchacoaching.vercel.app" target="_blank">View Coaching Options →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <p>Questions? <a href="mailto:elikopcha@gmail.com">elikopcha@gmail.com</a></p>
+        <p style="margin-top: 8px;">© 2026 ELI KOPCHA COACHING. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
