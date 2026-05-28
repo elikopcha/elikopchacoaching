@@ -62,40 +62,21 @@
 
         /* ─── VSL ─── */
         .vsl-wrap {
-            background: #14151E;
-            border: 1px solid #22233A;
-            border-radius: 14px;
-            aspect-ratio: 16 / 9;
-            max-width: 640px;
+            max-width: 320px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #22233A;
+            aspect-ratio: 9 / 16;
             position: relative;
         }
-        .vsl-play {
-            width: 68px;
-            height: 68px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-        }
-        .vsl-play::after {
-            content: '';
-            border-left: 24px solid #E8E8F0;
-            border-top: 14px solid transparent;
-            border-bottom: 14px solid transparent;
-            margin-left: 6px;
-        }
-        .vsl-hint {
-            font-size: 12px;
-            color: #404060;
-            letter-spacing: 0.04em;
+        .vsl-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
 
         /* ─── SHARED SECTION STYLES ─── */
@@ -544,18 +525,14 @@
             Getting in shape feels impossible because you're setting yourself up to fail out of the gate. This program was built for people who want results without making fitness their whole personality.
         </p>
 
-        <!-- Coach intro card -->
-        <div class="coach-intro-card">
-            <div class="coach-intro-photo-wrap">
-                <img class="coach-intro-photo" src="attachments/eli.jpg" alt="Eli Kopcha">
-            </div>
-            <div class="coach-intro-body">
-                <div>
-                    <div class="coach-intro-name">Eli Kopcha</div>
-                    <div class="coach-intro-role">Your Coach</div>
-                </div>
-                <p class="coach-intro-quote">"Most people on GLP-1s lose weight, then look in the mirror and realize they still don't look the way they want. I've been there. The medication helps with appetite, but it doesn't build muscle or give you shape. You need a real training and nutrition plan working alongside it. That's what I put together here."</p>
-            </div>
+        <!-- VSL -->
+        <div class="vsl-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/t4tZD71udD0"
+                title="Eli Kopcha Coaching"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
         </div>
 
         <div style="text-align: center; margin-top: 32px;">
